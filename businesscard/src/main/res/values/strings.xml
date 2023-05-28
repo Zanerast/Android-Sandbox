@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="cd_android_icon">Android icon</string>
+    <string name="my_name">Zane Rastrick</string>
+    <string name="job">Android Developer</string>
+    <string name="phone_number">+64 021 0269 1690</string>
+    <string name="email">zanerast@gmail.com</string>
+
+</resources>

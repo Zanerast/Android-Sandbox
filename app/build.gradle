@@ -51,14 +51,17 @@ dependencies {
     implementation "com.google.android.material:material:$google_android_material"
 
     // Compose
-    implementation "androidx.compose.material3:material3:$androidx_compose"
-    implementation "androidx.compose.ui:ui:$androidx_compose"
-    implementation "androidx.compose.ui:ui-tooling-preview:$androidx_compose"
+    implementation "androidx.compose.material3:material3:$androidx_material"
+    implementation "androidx.compose.ui:ui:$androidx_compose_ui"
+    implementation "androidx.compose.ui:ui-tooling-preview:$androidx_compose_ui"
+
+    // Debug
+    debugImplementation "androidx.compose.ui:ui-tooling:$androidx_compose_ui"
+    debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose_ui"
 
     // Testing
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose"
     testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose"
+    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose_ui"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
 
