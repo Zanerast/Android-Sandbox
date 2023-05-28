@@ -73,6 +73,52 @@ fun IconAndName() {
     }
 }
 
+@Composable
+fun ContactDetails() {
+    Column(
+        verticalArrangement = Arrangement.Bottom,
+        modifier = Modifier.padding(bottom = Spacing.Large)
+    ) {
+        DetailRow(
+            iconResId = R.drawable.ic_phone_24,
+            stringRedId = R.string.phone_number
+        )
+        DetailRow(
+            iconResId = R.drawable.ic_email_24,
+            stringRedId = R.string.email
+        )
+    }
+}
+
+@Composable
+private fun DetailRow(
+    @DrawableRes iconResId: Int,
+    @StringRes stringRedId: Int
+) {
+    Row(
+        modifier = Modifier
+            .wrapContentSize()
+            .padding(Spacing.Small),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Spacer(Modifier.weight(1f))
+        Icon(
+            painter = painterResource(id = iconResId),
+            contentDescription = stringResource(id = stringRedId),
+            tint = Color.Green100,
+            modifier = Modifier.size(28.dp)
+        )
+        Text(
+            text = stringResource(id = stringRedId),
+            fontSize = FontSize.Normal,
+            fontWeight = FontWeight.W400,
+            modifier = Modifier
+                .padding(start = 22.dp)
+                .align(Alignment.CenterVertically)
+                .weight(3f)
+        )
+        Spacer(Modifier.weight(1f))
+    }
 }
 
 @Preview(
