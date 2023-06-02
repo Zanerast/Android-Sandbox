@@ -40,7 +40,8 @@ android {
 
 dependencies {
 
-    implementation project(":businesscard")
+    implementation project(":projects:businesscard")
+    implementation project(":projects:diceroller")
     implementation project(":core")
 
     // Android

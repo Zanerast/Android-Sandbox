@@ -14,5 +14,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Compose"
 include ':app'
-include ':businesscard'
 include ':core'
+include ':projects:businesscard'
+include ':projects:diceroller'
