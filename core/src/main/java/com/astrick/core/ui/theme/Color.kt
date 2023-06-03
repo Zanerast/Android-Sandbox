@@ -52,6 +52,27 @@ val Color.Companion.Grey20
 val Color.Companion.Grey10
     get() = Color(0xFFececec)
 
+val Color.Companion.LightGreen100
+    get() = Color(0xFF90ee90)
+val Color.Companion.LightGreen90
+    get() = Color(0xFF9bef9b)
+val Color.Companion.LightGreen80
+    get() = Color(0xFFa6f1a6)
+val Color.Companion.LightGreen70
+    get() = Color(0xFFb1f3b1)
+val Color.Companion.LightGreen60
+    get() = Color(0xFFbcf4bc)
+val Color.Companion.LightGreen50
+    get() = Color(0xFFc7f6c7)
+val Color.Companion.LightGreen40
+    get() = Color(0xFFd2f8d2)
+val Color.Companion.LightGreen30
+    get() = Color(0xFFddf9dd)
+val Color.Companion.LightGreen20
+    get() = Color(0xFFe8fbe8)
+val Color.Companion.LightGreen10
+    get() = Color(0xFFf3fdf3)
+
 val Color.Companion.DarkBlue100
     get() = Color(0xFF152238)
 val DarkBlue90 = Color(0xFF2c384b)
