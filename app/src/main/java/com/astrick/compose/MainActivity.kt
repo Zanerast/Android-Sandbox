@@ -1,13 +1,13 @@
 package com.astrick.compose
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import com.astrick.businesscard.BusinessCard
 import com.astrick.core.ui.theme.BaseComposeTheme
-import com.astrick.lemonade.LemonadeApp
+import com.astrick.tipcalculator.TipTimeLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
             BaseComposeTheme {
 //                BusinessCard()
 //                DiceRoller()
-                LemonadeApp()
+//                LemonadeApp()
+                TipTimeLayout()
             }
         }
     }
