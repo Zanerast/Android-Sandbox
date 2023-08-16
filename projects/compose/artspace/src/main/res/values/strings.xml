@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="art_sword_title">Sword</string>
+    <string name="author_zane">Zane R</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="art_rusty_title">Rusty Axe</string>
+    <string name="art_gold_title">Gold Bars</string>
+    <string name="author_afton">Afton R</string>
+</resources>

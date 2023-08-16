@@ -12,75 +12,18 @@ val Pink40 = Color(0xFF7D5260)
 
 val Color.Companion.Green100
     get() = Color(0xFF176c40)
-val Color.Companion.Green90
-    get() = Color(0xFF2e7a53)
-val Color.Companion.Green80
-    get() = Color(0xFF458966)
-val Color.Companion.Green70
-    get() = Color(0xFF5c9879)
-val Color.Companion.Green60
-    get() = Color(0xFF73a68c)
-val Color.Companion.Green50
-    get() = Color(0xFF8bb59f)
-val Color.Companion.Green40
-    get() = Color(0xFFa2c4b2)
 val Color.Companion.Green30
     get() = Color(0xFFb9d2c5)
-val Color.Companion.Green20
-    get() = Color(0xFFd0e1d8)
-val Color.Companion.Green10
-    get() = Color(0xFFe7f0eb)
 
 val Color.Companion.Grey100
     get() = Color(0xFF444444)
-val Color.Companion.Grey90
-    get() = Color(0xFF565656)
-val Color.Companion.Grey80
-    get() = Color(0xFF696969)
-val Color.Companion.Grey70
-    get() = Color(0xFF7c7c7c)
-val Color.Companion.Grey60
-    get() = Color(0xFF8e8e8e)
-val Color.Companion.Grey50
-    get() = Color(0xFFa1a1a1)
-val Color.Companion.Grey40
-    get() = Color(0xFFb4b4b4)
-val Color.Companion.Grey30
-    get() = Color(0xFFc6c6c6)
-val Color.Companion.Grey20
-    get() = Color(0xFFd9d9d9)
 val Color.Companion.Grey10
     get() = Color(0xFFececec)
 
-val Color.Companion.LightGreen100
-    get() = Color(0xFF90ee90)
-val Color.Companion.LightGreen90
-    get() = Color(0xFF9bef9b)
-val Color.Companion.LightGreen80
-    get() = Color(0xFFa6f1a6)
-val Color.Companion.LightGreen70
-    get() = Color(0xFFb1f3b1)
 val Color.Companion.LightGreen60
     get() = Color(0xFFbcf4bc)
-val Color.Companion.LightGreen50
-    get() = Color(0xFFc7f6c7)
-val Color.Companion.LightGreen40
-    get() = Color(0xFFd2f8d2)
-val Color.Companion.LightGreen30
-    get() = Color(0xFFddf9dd)
-val Color.Companion.LightGreen20
-    get() = Color(0xFFe8fbe8)
-val Color.Companion.LightGreen10
-    get() = Color(0xFFf3fdf3)
 
-val Color.Companion.DarkBlue100
+val Color.Companion.BlueDark100
     get() = Color(0xFF152238)
-val DarkBlue90 = Color(0xFF2c384b)
-val DarkBlue80 = Color(0xFF434e5f)
-val DarkBlue70 = Color(0xFF5b6473)
-val DarkBlue60 = Color(0xFF727a87)
-val DarkBlue50 = Color(0xFF8a909b)
-val DarkBlue40 = Color(0xFFa1a6af)
-val DarkBlue30 = Color(0xFFb8bcc3)
-val DarkBlue20 = Color(0xFFd0d2d7)
-val DarkBlue10 = Color(0xFFe7e8eb)
+val Color.Companion.BlueLight100
+    get() = Color(0xFFADD8E6)

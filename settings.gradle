@@ -35,7 +35,8 @@ dependencyResolutionManagement {
 rootProject.name = "Compose"
 include ':app'
 include ':core'
-include ':projects:businesscard'
-include ':projects:diceroller'
-include ':projects:lemonade'
-include ':projects:tipcalculator'
+include ':projects:compose:businesscard'
+include ':projects:compose:diceroller'
+include ':projects:compose:lemonade'
+include ':projects:compose:tipcalculator'
+include ':projects:compose:artspace'
