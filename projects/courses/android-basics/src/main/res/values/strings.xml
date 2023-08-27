@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Art Space -->
+    <string name="art_sword_title">Sword</string>
+    <string name="author_zane">Zane R</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="art_rusty_title">Rusty Axe</string>
+    <string name="art_gold_title">Gold Bars</string>
+    <string name="author_afton">Afton R</string>
+
+    <!-- Business Card-->
+    <string name="cd_android_icon">Android icon</string>
+    <string name="my_name">Zane Rastrick</string>
+    <string name="job">Android Developer</string>
+    <string name="phone_number">+64 021 0269 1690</string>
+    <string name="email">zanerast@gmail.com</string>
+
+    <!-- Dice Roller -->
+    <string name="roll">Roll</string>
+
+    <!-- Lemonade -->
+    <string name="lemon_tree">Tap the lemon tree to select a lemon</string>
+    <string name="lemon">Keep tapping the lemon to squeeze it</string>
+    <string name="lemonade">Tap the lemonade to drink it</string>
+    <string name="empty_glass">Tap the empty glass to start again</string>
+
+    <string name="cd_lemon_tree">Lemon tree</string>
+    <string name="cd_lemon">Lemon</string>
+    <string name="cd_lemonade">Glass of lemonade</string>
+    <string name="cd_empty_glass">Empty glass</string>
+
+    <!-- Tip Calculator -->
+    <string name="app_name">Tip Time</string>
+    <string name="calculate_tip">Calculate Tip</string>
+    <string name="bill_amount">Bill Amount</string>
+    <string name="tip_amount">Tip Amount: %s</string>
+    <string name="how_was_the_service">Tip Percentage</string>
+    <string name="round_up_tip">Round up tip?</string>
+
+</resources>

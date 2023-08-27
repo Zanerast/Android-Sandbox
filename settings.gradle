@@ -32,11 +32,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Compose"
+rootProject.name = "Sandbox"
 include ':app'
 include ':core'
-include ':projects:compose:businesscard'
-include ':projects:compose:diceroller'
-include ':projects:compose:lemonade'
-include ':projects:compose:tipcalculator'
-include ':projects:compose:artspace'
+include ':projects:courses:android-basics'

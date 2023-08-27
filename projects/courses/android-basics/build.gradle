@@ -1,20 +1,18 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.astrick.sandbox'
-    compileSdk 33
+    namespace 'com.astrick.androidbasicscompose'
+    compileSdk compile_sdk
 
     defaultConfig {
-        applicationId "com.astrick.sandbox"
-        minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        minSdk min_sdk
+        targetSdk target_sdk
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -40,8 +38,6 @@ android {
 
 dependencies {
 
-    implementation project(':projects:courses:android-basics')
-
     implementation project(":core")
 
     // Android
@@ -62,8 +58,9 @@ dependencies {
 
     // Testing
     testImplementation "junit:junit:$junit"
+    androidTestImplementation "com.google.truth:truth:$google_truth"
+
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose_ui"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
-
 }
