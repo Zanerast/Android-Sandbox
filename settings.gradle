@@ -36,3 +36,4 @@ rootProject.name = "Sandbox"
 include ':app'
 include ':core'
 include ':projects:courses:android-basics'
+include ':projects:kotlin'
