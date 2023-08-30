@@ -16,14 +16,12 @@ fun main() {
     val rockPlanetsArray = Array(NUMBER_OF_ELEMENTS) { it }
     val rockPlanetsPrimitiveArray = IntArray(NUMBER_OF_ELEMENTS) { it }
     
-    // mutableListOf returns an ArrayList (which is a MutableList & Random.
-    // Speeds seem relative similar. Although ArrayList seems to be a bit slower for large data sets (difference is so little this could be chance)
-    // However, ArrayList result seem way more stable. Times for MutableList can be quite high sometimes, where as ArrayList results seem consistent
-//    val rockPlanetsList = MutableList(NUMBER_OF_ELEMENTS) { it }
-    val rockPlanetsList = mutableListOf<Int>()
-    repeat(NUMBER_OF_ELEMENTS) {
-        rockPlanetsList.add(it)
-    }
+    // MutableList and mutableListOf both use ArrayList under the hood (which is a MutableList & Random)
+    val rockPlanetsList = MutableList(NUMBER_OF_ELEMENTS) { it }
+//    val rockPlanetsList = mutableListOf<Int>()
+//    repeat(NUMBER_OF_ELEMENTS) {
+//        rockPlanetsList.add(it)
+//    }
     
     // Warm-up phase
     repeat(NUMBER_OF_ITERATIONS) {
