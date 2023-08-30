@@ -13,11 +13,11 @@ private const val MAX_INDEX = NUMBER_OF_ELEMENTS - 1
 
 fun main() {
     
-    val rockPlanetsArray = Array(NUMBER_OF_ELEMENTS) { it }
-    val rockPlanetsPrimitiveArray = IntArray(NUMBER_OF_ELEMENTS) { it }
+    val array = Array(NUMBER_OF_ELEMENTS) { it } // equivalent to arrayOf()
+    val primitiveArray = IntArray(NUMBER_OF_ELEMENTS) { it } // equivalent to intArrayOf()
     
     // MutableList and mutableListOf both use ArrayList under the hood (which is a MutableList & Random)
-    val rockPlanetsList = MutableList(NUMBER_OF_ELEMENTS) { it }
+    val list = MutableList(NUMBER_OF_ELEMENTS) { it }
 //    val rockPlanetsList = mutableListOf<Int>()
 //    repeat(NUMBER_OF_ELEMENTS) {
 //        rockPlanetsList.add(it)
@@ -26,9 +26,9 @@ fun main() {
     // Warm-up phase
     repeat(NUMBER_OF_ITERATIONS) {
         val random = Random.nextInt(MAX_INDEX)
-        rockPlanetsArray[random]
-        rockPlanetsPrimitiveArray[random]
-        rockPlanetsList[random]
+        array[random]
+        primitiveArray[random]
+        list[random]
     }
     
     // Benchmarking phase
@@ -43,33 +43,33 @@ fun main() {
         // Get tests
         val randomGet = Random.nextInt(MAX_INDEX)
         val arrayGetTime = measureNanoTime {
-            rockPlanetsArray[randomGet]
+            array[randomGet]
         }
         arrayGetTimes.add(arrayGetTime)
     
         val primitiveArrayGetTime = measureNanoTime {
-            rockPlanetsPrimitiveArray[randomGet]
+            primitiveArray[randomGet]
         }
         primitiveArrayGetTimes.add(primitiveArrayGetTime)
         
         val listTime = measureNanoTime {
-            rockPlanetsList[randomGet]
+            list[randomGet]
         }
         listGetTimes.add(listTime)
     
         // Set tests
         val randomSet = Random.nextInt(MAX_INDEX)
         val arraySetTime = measureNanoTime {
-            rockPlanetsArray[randomSet] = randomSet
+            array[randomSet] = randomSet
         }
         arraySetTimes.add(arraySetTime)
         val primitiveArraySetTime = measureNanoTime {
-            rockPlanetsPrimitiveArray[randomSet] = randomSet
+            primitiveArray[randomSet] = randomSet
         }
         primitiveArraySetTimes.add(primitiveArraySetTime)
         
         val listSetTime = measureNanoTime {
-            rockPlanetsList[randomSet] = randomSet
+            list[randomSet] = randomSet
         }
         listSetTimes.add(listSetTime)
     }
