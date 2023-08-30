@@ -8,14 +8,22 @@ import kotlin.math.sqrt
 
 private const val CONFIDENCE_LEVEL = 0.95
 private const val NUMBER_OF_ITERATIONS = 1000
-private const val NUMBER_OF_ELEMENTS = 1000
+private const val NUMBER_OF_ELEMENTS = 10
 private const val MAX_INDEX = NUMBER_OF_ELEMENTS - 1
 
 fun main() {
     
     val rockPlanetsArray = Array(NUMBER_OF_ELEMENTS) { it }
     val rockPlanetsPrimitiveArray = IntArray(NUMBER_OF_ELEMENTS) { it }
-    val rockPlanetsList = MutableList(NUMBER_OF_ELEMENTS) { it }
+    
+    // mutableListOf returns an ArrayList (which is a MutableList & Random.
+    // Speeds seem relative similar. Although ArrayList seems to be a bit slower for large data sets (difference is so little this could be chance)
+    // However, ArrayList result seem way more stable. Times for MutableList can be quite high sometimes, where as ArrayList results seem consistent
+//    val rockPlanetsList = MutableList(NUMBER_OF_ELEMENTS) { it }
+    val rockPlanetsList = mutableListOf<Int>()
+    repeat(NUMBER_OF_ELEMENTS) {
+        rockPlanetsList.add(it)
+    }
     
     // Warm-up phase
     repeat(NUMBER_OF_ITERATIONS) {
@@ -34,7 +42,7 @@ fun main() {
     val listSetTimes = mutableListOf<Long>()
     
     repeat(NUMBER_OF_ITERATIONS) {
-        // Get
+        // Get tests
         val randomGet = Random.nextInt(MAX_INDEX)
         val arrayGetTime = measureNanoTime {
             rockPlanetsArray[randomGet]
@@ -51,7 +59,7 @@ fun main() {
         }
         listGetTimes.add(listTime)
     
-        // Set
+        // Set tests
         val randomSet = Random.nextInt(MAX_INDEX)
         val arraySetTime = measureNanoTime {
             rockPlanetsArray[randomSet] = randomSet
