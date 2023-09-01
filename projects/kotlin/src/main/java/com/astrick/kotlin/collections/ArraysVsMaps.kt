@@ -4,11 +4,11 @@ import com.astrick.kotlin.NUMBER_OF_ITERATIONS
 import com.astrick.kotlin.calculateStats
 import com.astrick.kotlin.calculateTValue
 import com.astrick.kotlin.printResults
-import kotlin.math.sqrt
 import kotlin.random.Random
 import kotlin.system.measureNanoTime
+import kotlin.math.sqrt
 
-private const val NUMBER_OF_ELEMENTS = 10
+private const val NUMBER_OF_ELEMENTS = 1000
 private const val MAX_INDEX = NUMBER_OF_ELEMENTS - 1
 
 fun main() {
@@ -16,33 +16,29 @@ fun main() {
     val array = Array(NUMBER_OF_ELEMENTS) { it } // equivalent to arrayOf()
     val primitiveArray = IntArray(NUMBER_OF_ELEMENTS) { it } // equivalent to intArrayOf()
     
-    // MutableList and mutableListOf both use ArrayList under the hood (which is a MutableList & Random)
-
-    // List implemented this way is just a MutableList implementation wrapped in a restrictive List interface
-    // Use a List over an array when you want immutable elements
-    // MutableList is also just an ArrayList under the hood. So nearly every type of list is an ArrayList
-//    val list = List(NUMBER_OF_ELEMENTS) { it }
-    val list = MutableList(NUMBER_OF_ELEMENTS) { it }
-//    val list = mutableListOf<Int>()
-//    repeat(NUMBER_OF_ELEMENTS) {
-//        list.add(it)
-//    }
+    val map = mutableMapOf<Int, Int>()
+    repeat(NUMBER_OF_ELEMENTS) {
+        map[it] = it
+    }
     
     // Warm-up phase
     repeat(NUMBER_OF_ITERATIONS) {
         val random = Random.nextInt(MAX_INDEX)
         array[random]
         primitiveArray[random]
-        list[random]
+        map[random]
     }
     
     // Benchmarking phase
     val arrayGetTimes = mutableListOf<Long>()
     val arraySetTimes = mutableListOf<Long>()
+    val arrayContainsTimes = mutableListOf<Long>()
     val primitiveArrayGetTimes = mutableListOf<Long>()
     val primitiveArraySetTimes = mutableListOf<Long>()
-    val listGetTimes = mutableListOf<Long>()
-    val listSetTimes = mutableListOf<Long>()
+    val primitiveArrayContainsTimes = mutableListOf<Long>()
+    val mapGetTimes = mutableListOf<Long>()
+    val mapSetTimes = mutableListOf<Long>()
+    val mapContainsTimes = mutableListOf<Long>()
     
     repeat(NUMBER_OF_ITERATIONS) {
         // Get tests
@@ -57,10 +53,10 @@ fun main() {
         }
         primitiveArrayGetTimes.add(primitiveArrayGetTime)
         
-        val listTime = measureNanoTime {
-            list[randomGet]
+        val mapTimes = measureNanoTime {
+            map[randomGet]
         }
-        listGetTimes.add(listTime)
+        mapGetTimes.add(mapTimes)
     
         // Set tests
         val randomSet = Random.nextInt(MAX_INDEX)
@@ -73,10 +69,27 @@ fun main() {
         }
         primitiveArraySetTimes.add(primitiveArraySetTime)
         
-        val listSetTime = measureNanoTime {
-            list[randomSet] = randomSet
+        val mapSetTime = measureNanoTime {
+            map[randomSet] = randomSet
         }
-        listSetTimes.add(listSetTime)
+        mapSetTimes.add(mapSetTime)
+    
+        // Contains tests
+        val randomContains = Random.nextInt(MAX_INDEX)
+        val arrayContainsTime = measureNanoTime {
+            array.contains(randomContains)
+        }
+        arrayContainsTimes.add(arrayContainsTime)
+    
+        val primitiveArrayContainsTime = measureNanoTime {
+            primitiveArray.contains(randomContains)
+        }
+        primitiveArrayContainsTimes.add(primitiveArrayContainsTime)
+    
+        val mapContainsTime = measureNanoTime {
+            map.contains(randomContains)
+        }
+        mapContainsTimes.add(mapContainsTime)
     }
     
     val tValue = calculateTValue()
@@ -84,28 +97,42 @@ fun main() {
     // Gets
     val arrayStats = calculateStats(arrayGetTimes)
     val primitiveArrayStats = calculateStats(primitiveArrayGetTimes)
-    val listStats = calculateStats(listGetTimes)
+    val mapStats = calculateStats(mapGetTimes)
     
     val arrayConfidenceInterval = tValue * (arrayStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
     val primitiveArrayConfidenceInterval = tValue * (primitiveArrayStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
-    val listConfidenceInterval = tValue * (listStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
+    val mapConfidenceInterval = tValue * (mapStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
     
     printResults("Array Get Time:", arrayStats, arrayConfidenceInterval)
     printResults("Primitive Array Get Time:", primitiveArrayStats, primitiveArrayConfidenceInterval)
-    printResults("List Get Time:", listStats, listConfidenceInterval)
+    printResults("Map Get Time:", mapStats, mapConfidenceInterval)
     
     // Sets
     val arraySetStats = calculateStats(arraySetTimes)
     val primitiveArraySetStats = calculateStats(primitiveArraySetTimes)
-    val listSetStats = calculateStats(listSetTimes)
+    val mapSetStats = calculateStats(mapSetTimes)
     
     val arraySetConfidenceInterval = tValue * (arraySetStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
     val primitiveArraySetConfidenceInterval = tValue * (primitiveArraySetStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
-    val listSetConfidenceInterval = tValue * (listSetStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
+    val mapSetConfidenceInterval = tValue * (mapSetStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
     
     println("-----------------------------------")
     printResults("Array Set Time:", arraySetStats, arraySetConfidenceInterval)
     printResults("Primitive Array Set Time:", primitiveArraySetStats, primitiveArraySetConfidenceInterval)
-    printResults("List Set Time:", listSetStats, listSetConfidenceInterval)
+    printResults("Map Set Time:", mapSetStats, mapSetConfidenceInterval)
+    
+    // Contains
+    val arrayContainsStats = calculateStats(arrayContainsTimes)
+    val primitiveArrayContainsStats = calculateStats(primitiveArrayContainsTimes)
+    val mapContainsStats = calculateStats(mapContainsTimes)
+    
+    val arrayContainsConfidenceInterval = tValue * (arrayContainsStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
+    val primitiveArrayContainsConfidenceInterval = tValue * (primitiveArrayContainsStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
+    val mapContainsConfidenceInterval = tValue * (mapContainsStats.standardDeviation / sqrt(NUMBER_OF_ITERATIONS.toDouble()))
+    
+    println("-----------------------------------")
+    printResults("Array Contains Time:", arrayContainsStats, arrayContainsConfidenceInterval)
+    printResults("Primitive Contains Time:", primitiveArrayContainsStats, primitiveArrayContainsConfidenceInterval)
+    printResults("Map Contains Time:", mapContainsStats, mapContainsConfidenceInterval)
 }
 
