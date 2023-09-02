@@ -1,7 +1,5 @@
 package com.astrick.kotlin.collections
 
-import kotlin.system.measureTimeMillis
-
 // Sets are unordered collections
 // Are faster than lists, but use more memory
 // Time it takes to check if a set contains an element does increase with size
@@ -14,13 +12,15 @@ import kotlin.system.measureTimeMillis
 
 // Are they faster than arrays?
 fun main() {
-    val solarSystem = mutableSetOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
-    val solarSystemArray = arrayOf("Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune")
+    val rockPlanets = setOf("Mercury", "Venus", "Earth", "Mars", "Duplicate")
+    val gasPlanets = setOf("Jupiter", "Saturn", "Uranus", "Duplicate", "Neptune")
+    println(rockPlanets.contains("Mercury"))
     
-    val time = measureTimeMillis {
-        println(solarSystem.contains("Pluto"))
-    }
-    println("Contains time: $time")
+    
+    val intersection = rockPlanets.intersect(gasPlanets)
+    println(intersection) // [Duplicate]
+    val union = rockPlanets.union(gasPlanets)
+    println(union) // [Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune, Duplicate]
 }
 
 // References:

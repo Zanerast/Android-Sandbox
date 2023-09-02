@@ -14,7 +14,6 @@ private const val MAX_INDEX = NUMBER_OF_ELEMENTS - 1
 fun main() {
     
     val list = MutableList(NUMBER_OF_ELEMENTS) { it } // equivalent to arrayOf()
-    
     val map = mutableMapOf<Int, Int>()
     repeat(NUMBER_OF_ELEMENTS) {
         map[it] = it
