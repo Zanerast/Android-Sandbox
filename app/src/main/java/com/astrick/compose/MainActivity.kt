@@ -5,9 +5,9 @@ import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
-import com.astrick.affirmations.Affirmations
 import com.astrick.businesscard.BusinessCard
 import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.woof.WoofApp
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity() {
 //                LemonadeApp()
 //                TipTimeLayout()
 //                ArtSpace()
-                Affirmations()
+//                Affirmations()
+                WoofApp()
             }
         }
     }
