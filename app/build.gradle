@@ -48,13 +48,16 @@ dependencies {
     implementation "androidx.activity:activity-compose:$androidx_activity_compose"
     implementation "androidx.appcompat:appcompat:$androidx_appcompact"
     implementation "androidx.core:core-ktx:$androidx_core_ktx"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
     implementation "com.google.android.material:material:$google_android_material"
 
     // Compose
-    implementation "androidx.compose.material3:material3:$androidx_material"
-    implementation "androidx.compose.ui:ui:$androidx_compose_ui"
-    implementation "androidx.compose.ui:ui-tooling-preview:$androidx_compose_ui"
+    implementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-tooling-preview")
 
     // Debug
     debugImplementation "androidx.compose.ui:ui-tooling:$androidx_compose_ui"
@@ -62,7 +65,8 @@ dependencies {
 
     // Testing
     testImplementation "junit:junit:$junit"
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose_ui"
+    androidTestImplementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
 

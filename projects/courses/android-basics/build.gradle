@@ -44,6 +44,7 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$androidx_appcompact"
     implementation "androidx.core:core-ktx:$androidx_core_ktx"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$androidx_lifecycle"
     implementation "com.google.android.material:material:$google_android_material"
 
     // Compose
@@ -61,7 +62,8 @@ dependencies {
     testImplementation "junit:junit:$junit"
     androidTestImplementation "com.google.truth:truth:$google_truth"
 
-    androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose_ui"
+    androidTestImplementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
     androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
 }

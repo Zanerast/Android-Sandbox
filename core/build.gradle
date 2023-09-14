@@ -56,6 +56,8 @@ dependencies {
     debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose_ui"
 
     // Testing
+    implementation "junit:junit:$junit" // used so i can create coroutine scope rule
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_test_version"
     testImplementation "junit:junit:$junit"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$androidx_compose_ui"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
