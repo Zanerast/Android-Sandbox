@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Rally App -->
+    <string name="rally_app_name">Rally</string>
+    <string name="total">Total</string>
+    <string name="due">Due</string>
+    <string name="account_redacted">• • • • • </string>
+    <string name="accounts">Accounts</string>
+    <string name="bills">Bills</string>
+    <string name="sort">Sort</string>
+    <string name="see_all">SEE ALL</string>
+</resources>
