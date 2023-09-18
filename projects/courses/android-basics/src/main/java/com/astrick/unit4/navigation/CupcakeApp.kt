@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake
+package com.astrick.unit4.navigation
 
 import android.content.Context
 import android.content.Intent
@@ -27,11 +27,11 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.astrick.androidbasicscompose.R
-import com.astrick.unit4.cupcake.data.DataSource
-import com.astrick.unit4.cupcake.ui.OrderSummaryScreen
-import com.astrick.unit4.cupcake.ui.OrderViewModel
-import com.astrick.unit4.cupcake.ui.SelectOptionScreen
-import com.astrick.unit4.cupcake.ui.StartOrderScreen
+import com.astrick.unit4.navigation.data.DataSource
+import com.astrick.unit4.navigation.ui.OrderSummaryScreen
+import com.astrick.unit4.navigation.ui.OrderViewModel
+import com.astrick.unit4.navigation.ui.SelectOptionScreen
+import com.astrick.unit4.navigation.ui.StartOrderScreen
 
 enum class CupcakeScreen(@StringRes val title: Int) {
     START(title = R.string.cupcake_app_name),
@@ -86,7 +86,6 @@ fun CupcakeApp(
             )
         }
     ) { innerPadding ->
-        var padding = innerPadding
         val uiState by viewModel.uiState.collectAsState()
         
         NavHost(

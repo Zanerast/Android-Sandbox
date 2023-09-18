@@ -1,7 +1,7 @@
-package com.astrick.unit4.cupcake.ui
+package com.astrick.unit4.navigation.ui
 
 import androidx.lifecycle.ViewModel
-import com.astrick.unit4.cupcake.data.OrderUiState
+import com.astrick.unit4.navigation.data.OrderUiState
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.ui.components
+package com.astrick.unit4.navigation.ui.components
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text

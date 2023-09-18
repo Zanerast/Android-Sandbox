@@ -35,6 +35,7 @@ dependencyResolutionManagement {
 rootProject.name = "Sandbox"
 include ':app'
 include ':core'
+include ':testing'
 include ':projects:courses:android-basics'
 include ':projects:courses:random-codelabs'
 include ':projects:kotlin'

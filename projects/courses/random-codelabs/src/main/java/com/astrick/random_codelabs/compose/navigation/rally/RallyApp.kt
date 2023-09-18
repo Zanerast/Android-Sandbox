@@ -12,10 +12,12 @@ import com.astrick.random_codelabs.compose.navigation.rally.ui.theme.RallyTheme
 
 // To test deeplink, run:
 // adb shell am start -d "rally://single_account/Checking" -a android.intent.action.VIEW
+
+// Source: https://developer.android.com/codelabs/jetpack-compose-navigation#0
+
 @Composable
 fun RallyApp() {
     RallyTheme {
-//        var currentScreen: RallyDestination by remember { mutableStateOf(Overview) }
         val navController = rememberNavController()
         val currentBackStack by navController.currentBackStackEntryAsState()
         val currentDestination = currentBackStack?.destination

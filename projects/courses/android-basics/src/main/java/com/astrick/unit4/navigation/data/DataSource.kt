@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.data
+package com.astrick.unit4.navigation.data
 
 import com.astrick.androidbasicscompose.R
 

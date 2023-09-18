@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.data
+package com.astrick.unit4.navigation.data
 
 /**
  * Data class that represents the current UI state in terms of [quantity], [flavor],

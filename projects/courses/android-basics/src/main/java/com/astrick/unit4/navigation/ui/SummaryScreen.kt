@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.ui
+package com.astrick.unit4.navigation.ui
 
 
 import androidx.compose.foundation.layout.Arrangement
@@ -22,8 +22,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.astrick.androidbasicscompose.R
-import com.astrick.unit4.cupcake.data.OrderUiState
-import com.astrick.unit4.cupcake.ui.components.FormattedPriceLabel
+import com.astrick.unit4.navigation.data.OrderUiState
+import com.astrick.unit4.navigation.ui.components.FormattedPriceLabel
 
 /**
  * This composable expects [orderUiState] that represents the order state, [onCancelButtonClicked]

@@ -1,4 +1,4 @@
-package com.astrick.core.testing
+package com.astrick.testing
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

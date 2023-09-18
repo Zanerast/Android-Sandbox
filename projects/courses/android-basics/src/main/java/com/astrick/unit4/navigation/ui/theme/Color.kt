@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.ui.theme
+package com.astrick.unit4.navigation.ui.theme
 
 
 import androidx.compose.ui.graphics.Color

@@ -1,4 +1,4 @@
-package com.astrick.unit4.cupcake.ui
+package com.astrick.unit4.navigation.ui
 
 
 import androidx.annotation.StringRes
@@ -25,7 +25,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.astrick.androidbasicscompose.R
-import com.astrick.unit4.cupcake.data.DataSource
+import com.astrick.unit4.navigation.data.DataSource
 
 /**
  * Composable that allows the user to select the desired cupcake quantity and expects
