@@ -15,6 +15,8 @@ import org.junit.Rule
 import org.junit.Test
 import com.astrick.androidbasicscompose.R
 import com.astrick.testing.onNodeWithStringId
+import com.astrick.unit4_navigation.cupcake.CupcakeApp
+import com.astrick.unit4_navigation.cupcake.CupcakeScreen
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale
