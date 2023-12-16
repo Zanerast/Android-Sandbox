@@ -3,11 +3,8 @@ package com.astrick.compose
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSizeClassApi
-import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
-import com.astrick.unit4_adaptive_layout.reply.ui.ReplyApp
+import com.astrick.compose.animation.AnimatedVisibilitySample
 
-@OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
 class MainActivity : AppCompatActivity() {
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,8 +14,10 @@ class MainActivity : AppCompatActivity() {
         setContent {
 //            RallyApp()
 //            LunchTrayApp()
-            val window = calculateWindowSizeClass(activity = this)
-            ReplyApp(window.widthSizeClass)
+//            val window = calculateWindowSizeClass(activity = this)
+//            ReplyApp(window.widthSizeClass)
+//            UnScramble()
+            AnimatedVisibilitySample()
         }
     }
     

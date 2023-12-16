@@ -54,7 +54,9 @@ fun ReplyListOnlyContent(
                     .padding(vertical = dimensionResource(R.dimen.topbar_padding_vertical))
             )
         }
-        items(emails, key = { email -> email.id }) { email ->
+        items(
+            emails,
+            key = { email -> email.id }) { email ->
             ReplyEmailListItem(
                 email = email,
                 selected = false,
@@ -85,7 +87,9 @@ fun ReplyListAndDetailContent(
                 dimensionResource(R.dimen.email_list_item_vertical_spacing)
             )
         ) {
-            items(emails, key = { email -> email.id }) { email ->
+            items(
+                emails,
+                key = { email -> email.id }) { email ->
                 ReplyEmailListItem(
                     email = email,
                     selected = replyUiState.currentSelectedEmail.id == email.id,
@@ -98,7 +102,9 @@ fun ReplyListAndDetailContent(
         val activity = LocalContext.current as Activity
         ReplyDetailsScreen(
             replyUiState = replyUiState,
-            onBackPressed = {},
+            onBackPressed = {
+                activity.finish()
+            },
             modifier = Modifier.weight(1f)
         )
     }

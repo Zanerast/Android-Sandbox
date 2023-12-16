@@ -33,12 +33,14 @@ import com.astrick.unit4_adaptive_layout.reply.data.Email
 import com.astrick.unit4_adaptive_layout.reply.data.MailboxType
 import com.astrick.unit4_adaptive_layout.reply.data.local.LocalAccountsDataProvider
 import com.astrick.unit4_adaptive_layout.reply.ui.util.NavigationItemContent
+import com.astrick.unit4_adaptive_layout.reply.ui.util.ReplyContentType
 import com.astrick.unit4_adaptive_layout.reply.ui.util.ReplyNavigationType
 
 @Composable
 fun ReplyHomeScreen(
     replyUiState: ReplyUiState,
     navigationType: ReplyNavigationType,
+    contentType: ReplyContentType,
     onTabPressed: (MailboxType) -> Unit,
     onEmailCardPressed: (Email) -> Unit,
     onDetailScreenBackPressed: () -> Unit,
@@ -66,7 +68,7 @@ fun ReplyHomeScreen(
             text = stringResource(id = R.string.tab_spam)
         )
     )
-    if (navigationType == ReplyNavigationType.PERMANENT_NAVIGATION_DRAWER && replyUiState.isShowingHomepage) {
+    if (navigationType == ReplyNavigationType.PERMANENT_NAVIGATION_DRAWER) {
         PermanentNavigationDrawer(
             drawerContent = {
                 PermanentDrawerSheet(Modifier.width(dimensionResource(id = R.dimen.drawer_width))) {
@@ -83,6 +85,7 @@ fun ReplyHomeScreen(
                 }
             }) {
             ReplyAppContent(
+                contentType = contentType,
                 navigationType = navigationType,
                 replyUiState = replyUiState,
                 onTabPressed = onTabPressed,
@@ -94,6 +97,7 @@ fun ReplyHomeScreen(
     } else {
         if (replyUiState.isShowingHomepage) {
             ReplyAppContent(
+                contentType = contentType,
                 navigationType = navigationType,
                 replyUiState = replyUiState,
                 onTabPressed = onTabPressed,
@@ -105,7 +109,8 @@ fun ReplyHomeScreen(
             ReplyDetailsScreen(
                 replyUiState = replyUiState,
                 onBackPressed = onDetailScreenBackPressed,
-                modifier = modifier
+                modifier = modifier,
+                isFullScreen = true
             )
         }
     }

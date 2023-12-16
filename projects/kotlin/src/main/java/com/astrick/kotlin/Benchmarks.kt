@@ -1,5 +1,6 @@
 package com.astrick.kotlin
 
+import androidx.lifecycle.MutableLiveData
 import org.apache.commons.math3.distribution.TDistribution
 import org.apache.commons.math3.stat.descriptive.SummaryStatistics
 
@@ -22,4 +23,13 @@ fun printResults(label: String, stats: SummaryStatistics, confidenceInterval: Do
     println("$label:")
     println("%.2f ns (± %.2f ns) [${CONFIDENCE_LEVEL * 100}%% confidence]".format(mean, confidenceInterval))
     println()
+}
+
+fun main() {
+    val liveData = MutableLiveData<Int>()
+    repeat(10_000) {
+        liveData.value = liveData.value?.plus(1)
+    }
+    
+    println("Total: ${liveData.value}")
 }

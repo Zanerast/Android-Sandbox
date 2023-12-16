@@ -1,20 +1,17 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
 }
 
 android {
-    namespace 'com.astrick.sandbox'
-    compileSdk compile_sdk
+    namespace 'com.astrick.compose'
+    compileSdk 33
 
     defaultConfig {
-        applicationId "com.astrick.sandbox"
-        minSdk min_sdk
-        targetSdk target_sdk
-        versionCode 1
-        versionName "1.0"
+        minSdk 24
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
     }
 
     buildTypes {
@@ -30,45 +27,44 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
     buildFeatures {
         compose true
     }
+
     composeOptions {
         kotlinCompilerExtensionVersion = compose_compiler_version
     }
 }
 
 dependencies {
-
-    implementation project(':projects:courses:android-basics')
-    implementation project(':projects:courses:random-codelabs')
-    implementation project(':projects:compose')
-
     implementation project(":core")
 
     // Android
-    implementation "androidx.activity:activity-compose:$androidx_activity_compose"
     implementation "androidx.appcompat:appcompat:$androidx_appcompact"
     implementation "androidx.core:core-ktx:$androidx_core_ktx"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$androidx_lifecycle"
     implementation "com.google.android.material:material:$google_android_material"
 
     // Compose
+    implementation "androidx.activity:activity-compose:$androidx_activity_compose"
     implementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
+    implementation("androidx.compose.foundation:foundation") // Includes scaffold
     implementation("androidx.compose.material:material-icons-extended")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.material3:material3-window-size-class")
+    implementation("androidx.compose.material:material")
+//    implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.navigation:navigation-compose:$androidx_navigation_compose")
-
-    // Debug
-    debugImplementation "androidx.compose.ui:ui-tooling:$androidx_compose_ui"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose_ui"
+    // Compose: Debug
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     // Testing
     testImplementation "junit:junit:$junit"
+    androidTestImplementation "com.google.truth:truth:$google_truth"
+
     androidTestImplementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation "androidx.navigation:navigation-testing:$androidx_navigation_testing"
