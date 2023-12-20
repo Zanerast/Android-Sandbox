@@ -49,7 +49,7 @@ fun StateTransitionSample() {
             States.STATE_THREE -> 40.dp
         }
     }
-    val textSize by transition.animateFloat(label = "textSizeTransition") {
+    val textSize by transition.animateFloat(label = "textSizeTransition" ) {
         when (it) {
             States.STATE_ONE -> 20f
             States.STATE_TWO -> 50f
