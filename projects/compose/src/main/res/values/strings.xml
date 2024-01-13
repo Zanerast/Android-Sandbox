@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="click_to_move_cupcake">Click to move cupcake</string>
+    <string name="swipe_to_dismiss">Swipe to dismiss</string>
+</resources>

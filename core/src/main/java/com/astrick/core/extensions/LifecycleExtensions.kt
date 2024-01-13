@@ -20,3 +20,11 @@ fun <T> Flow<T>.collectLatestOnResume(
         }
     }
 }
+
+inline fun LifecycleOwner.repeatOnResume(crossinline block: suspend () -> Unit) {
+    lifecycleScope.launch {
+        repeatOnLifecycle(Lifecycle.State.RESUMED) {
+            block()
+        }
+    }
+}
