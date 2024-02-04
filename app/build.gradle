@@ -5,13 +5,39 @@ plugins {
 
 android {
     namespace 'com.astrick.sandbox'
+    /**
+     * compileSdk specifies the Android API level Gradle should use to
+     * compile your app. This means your app can use the API features included in
+     * this API level and lower.
+     */
     compileSdk compile_sdk
 
+    /**
+     * The defaultConfig block encapsulates default settings and entries for all
+     * build variants and can override some attributes in main/AndroidManifest.xml
+     * dynamically from the build system. You can configure product flavors to override
+     * these values for different versions of your app.
+     */
     defaultConfig {
+        // Also known as package name
         applicationId "com.astrick.sandbox"
+        // Defines the minimum API level required to run the app.
         minSdk min_sdk
+        /**
+         * The target SDK version is the version of the Android framework that your app is
+         * specifically developed and tested against.
+         * Indicates the highest Android version that your app is designed to be compatible with.
+         * Allows your app to use new features and behaviors introduced in that version in runtime.
+          */
         targetSdk target_sdk
+        /**
+         * Version code is an int so the system knows which versions are newer
+         */
         versionCode 1
+        /**
+         * Version Name is the human readable version of the version code.
+         * This is what will appear on the PlayStore etc
+         */
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

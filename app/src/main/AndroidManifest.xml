@@ -21,10 +21,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="rally" android:host="single_account"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <!-- Required to open from most intent (like the command line) -->
+                <category android:name="android.intent.category.DEFAULT" />
+                <!-- BROWSABLE means the activity can be launched by a browser, email link etc.
+                    Although while testing it seems like it still needs the DEFAULT category to work from a
+                    web browser
+                 -->
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="rally" />
+                <data android:host="single_account" />
+                <data android:scheme="mydeeplinkapp" />
+                <data android:host="greeting" />
             </intent-filter>
         </activity>
     </application>

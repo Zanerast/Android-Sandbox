@@ -25,6 +25,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -84,55 +85,31 @@ fun HomeScreen(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier.fillMaxWidth()
         ) {
-            
-            Image(
-                painter = painterResource(id = R.drawable.affirmations1),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(90.dp)
-                    .clickable {
-                        selectedImage = R.drawable.affirmations1
-                    }
-                    .border(
-                        1.dp,
-                        if (selectedImage == R.drawable.affirmations1) Color.Yellow else Color.Transparent
-                    )
-            )
-            Image(
-                painter = painterResource(id = R.drawable.affirmations2),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(90.dp)
-                    .clickable {
-                        selectedImage = R.drawable.affirmations2
-                    }
-                    .border(
-                        1.dp,
-                        if (selectedImage == R.drawable.affirmations2) Color.Yellow else Color.Transparent
-                    )
-            )
-            Image(
-                painter = painterResource(id = R.drawable.affirmations3),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(90.dp)
-                    .clickable {
-                        selectedImage = R.drawable.affirmations3
-                    }
-                    .border(
-                        1.dp,
-                        if (selectedImage == R.drawable.affirmations3) Color.Yellow else Color.Transparent
-                    )
-            )
+            SelectableImage(
+                image = R.drawable.affirmations1,
+                isSelected = selectedImage == R.drawable.affirmations1
+            ) {
+                selectedImage = R.drawable.affirmations1
+            }
+            SelectableImage(
+                image = R.drawable.affirmations2,
+                isSelected = selectedImage == R.drawable.affirmations2
+            ) {
+                selectedImage = R.drawable.affirmations2
+            }
+            SelectableImage(
+                image = R.drawable.affirmations3,
+                isSelected = selectedImage == R.drawable.affirmations3
+            ) {
+                selectedImage = R.drawable.affirmations3
+            }
         }
         
         // Name
-        var name by remember { mutableStateOf("") }
+        val (name, onNameChange) = remember { mutableStateOf("") }
         TextField(
             value = name,
-            onValueChange = {
-                name = it
-            },
+            onValueChange = onNameChange,
             label = {
                 Text(text = "Name")
             }
@@ -162,6 +139,28 @@ fun HomeScreen(
             Text(text = "Next")
         }
     }
+}
+
+@Composable
+private fun SelectableImage(
+    @DrawableRes image: Int,
+    isSelected: Boolean,
+    onClicked: () -> Unit
+) {
+    Image(
+        painter = painterResource(id = image),
+        contentDescription = null,
+        contentScale = ContentScale.Crop,
+        modifier = Modifier
+            .size(90.dp)
+            .clickable {
+                onClicked()
+            }
+            .border(
+                1.dp,
+                if (isSelected) Color.Yellow else Color.Transparent
+            )
+    )
 }
 
 @Composable
