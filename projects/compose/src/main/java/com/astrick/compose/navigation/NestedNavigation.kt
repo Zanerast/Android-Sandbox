@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
@@ -26,8 +27,7 @@ private const val DEST_B_A = "route_b_a"
 private const val DEST_B_B = "route_b_b"
 
 @Composable
-fun NestedNavigation() {
-    val navController = rememberNavController()
+fun NestedNavigation(navController: NavHostController = rememberNavController()) {
     NavHost(navController = navController, startDestination = DEST_HOME) {
         composable(DEST_HOME) {
             Template(title = "Home") {
@@ -43,8 +43,11 @@ fun NestedNavigation() {
     }
 }
 
-private fun NavGraphBuilder.addNestedNavigation(navController: NavController) {
-    navigation(startDestination = DEST_B_HOME, route = NAV_B) {
+fun NavGraphBuilder.addNestedNavigation(
+    navController: NavController,
+    route: String = NAV_B
+) {
+    navigation(startDestination = DEST_B_HOME, route = route) {
         composable(DEST_B_HOME) {
             Template(title = "Route B Home") {
                 Button(
