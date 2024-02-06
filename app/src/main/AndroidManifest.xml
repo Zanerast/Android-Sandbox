@@ -37,6 +37,10 @@
                 <data android:host="greeting" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.astrick.compose.navigation.hybrid.HybridActivity"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

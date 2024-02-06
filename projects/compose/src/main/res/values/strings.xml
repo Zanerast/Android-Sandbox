@@ -2,4 +2,12 @@
 <resources>
     <string name="click_to_move_cupcake">Click to move cupcake</string>
     <string name="swipe_to_dismiss">Swipe to dismiss</string>
+    <string name="title_activity_hybrid">HybridActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="xml_fragment_label">Xml Fragment</string>
+    <string name="compose_fragment_label">Compose Fragment</string>
+    <string name="go_to_compose_screen">Go to compose screen</string>
+    <string name="previous">Previous</string>
+    <string name="xml_title">Xml Screen</string>
+
 </resources>

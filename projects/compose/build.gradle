@@ -30,6 +30,7 @@ android {
 
     buildFeatures {
         compose true
+        viewBinding true
     }
 
     composeOptions {
@@ -46,6 +47,9 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
     implementation "androidx.lifecycle:lifecycle-viewmodel-compose:$androidx_lifecycle"
     implementation "com.google.android.material:material:$google_android_material"
+    implementation "androidx.constraintlayout:constraintlayout:$androidx_constraint_layout"
+    implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation"
 
     // Compose
     implementation "androidx.activity:activity-compose:$androidx_activity_compose"
