@@ -1,11 +1,7 @@
 package com.astrick.compose.navigation
 
 import androidx.compose.animation.expandIn
-import androidx.compose.animation.expandVertically
-import androidx.compose.animation.fadeIn
-import androidx.compose.animation.fadeOut
-import androidx.compose.animation.shrinkVertically
-import androidx.compose.animation.slideOutHorizontally
+import androidx.compose.animation.slideInVertically
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -25,6 +21,7 @@ import androidx.navigation.compose.rememberNavController
 
 private const val DESTINATION_HOME = "destination_home"
 private const val DESTINATION_SECOND = "destination_second"
+private const val DESTINATION_THIRD = "destination_third"
 
 @Composable
 fun NavTransitions() {
@@ -37,27 +34,54 @@ fun NavTransitions() {
             }
         ) {
             Template(
-                name = "Home", buttonText = "Go to screen 2", backgroundColor = Color.Yellow
+                name = "Home", backgroundColor = Color.Yellow
             ) {
-                navController.navigate(DESTINATION_SECOND)
+                Button(onClick = { navController.navigate(DESTINATION_SECOND) }) {
+                    Text(text = "Go to screen 2")
+                }
+                Button(onClick = { navController.navigate(DESTINATION_THIRD) }) {
+                    Text(text = "Go to screen 3")
+                }
             }
         }
         composable(
-            route = DESTINATION_SECOND,
+            route = DESTINATION_SECOND
+        ) {
+            Template(
+                name = "Second Screen", backgroundColor = Color.Blue
+            ) {
+                
+                Button(onClick = { navController.navigate(DESTINATION_HOME) }) {
+                    Text(text = "Go to Home")
+                }
+                Button(onClick = { navController.navigate(DESTINATION_THIRD) }) {
+                    Text(text = "Go to screen 3")
+                }
+            }
+        }
+        composable(
+            route = DESTINATION_THIRD,
             enterTransition = {
-                fadeIn() + expandVertically()
-            },
-            exitTransition = {
-                fadeOut() + shrinkVertically()
-            },
-            popExitTransition = {
-                fadeOut() + slideOutHorizontally()
+                when (initialState.destination.route) {
+                    DESTINATION_HOME -> {
+                        slideInVertically()
+                    }
+                    else -> {
+                        expandIn()
+                    }
+                }
             }
         ) {
             Template(
-                name = "Second Screen", buttonText = "Go to Home", backgroundColor = Color.Blue
+                name = "Third Screen", backgroundColor = Color.Red
             ) {
-                navController.navigate(DESTINATION_HOME)
+                
+                Button(onClick = { navController.navigate(DESTINATION_HOME) }) {
+                    Text(text = "Go to Home")
+                }
+                Button(onClick = { navController.navigate(DESTINATION_SECOND) }) {
+                    Text(text = "Go to screen 2")
+                }
             }
         }
     }
@@ -66,9 +90,8 @@ fun NavTransitions() {
 @Composable
 private fun Template(
     name: String,
-    buttonText: String,
     backgroundColor: Color,
-    onClickNav: () -> Unit
+    content: @Composable () -> Unit
 ) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -82,8 +105,7 @@ private fun Template(
             fontSize = 28.sp,
             modifier = Modifier.padding(8.dp)
         )
-        Button(onClick = onClickNav) {
-            Text(text = buttonText)
-        }
+        
+        content()
     }
 }
