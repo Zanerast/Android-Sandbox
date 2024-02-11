@@ -26,7 +26,13 @@ private const val DESTINATION_THIRD = "destination_third"
 @Composable
 fun NavTransitions() {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = DESTINATION_HOME) {
+    NavHost(
+        navController = navController,
+        startDestination = DESTINATION_HOME,
+        enterTransition = {
+            slideInVertically()
+        }
+    ) {
         composable(
             route = DESTINATION_HOME,
             popEnterTransition = {
@@ -64,10 +70,12 @@ fun NavTransitions() {
             enterTransition = {
                 when (initialState.destination.route) {
                     DESTINATION_HOME -> {
-                        slideInVertically()
+                        expandIn()
                     }
                     else -> {
-                        expandIn()
+                        // null means it will default to the parent enterTransition
+                        // which is slideInVertically on line 33
+                        null
                     }
                 }
             }
