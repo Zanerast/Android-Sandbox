@@ -8,8 +8,11 @@
     <string name="bottom_nav_phone_title">Numbers</string>
     <string name="bottom_nav_email_title">Email</string>
 
+    <!-- Interoperability -->
+    <string name="interoperability_title">Interoperability Screen</string>
+
+    <!-- Navigation -->
     <string name="title_activity_hybrid">HybridActivity</string>
-    <!-- Strings used for fragments for navigation -->
     <string name="xml_fragment_label">Xml Fragment</string>
     <string name="compose_fragment_label">Compose Fragment</string>
     <string name="go_to_compose_screen">Go to compose screen</string>

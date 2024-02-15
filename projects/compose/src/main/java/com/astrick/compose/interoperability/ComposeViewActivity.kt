@@ -1,8 +1,8 @@
-package com.astrick.compose.navigation.hybrid
+package com.astrick.compose.interoperability
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.astrick.compose.databinding.ActivityNavHybridBinding
+import com.astrick.compose.databinding.ActivityComposeViewBinding
 
 /**
  * To launch this go to 'run' drop down menu, then 'Edit configurations'
@@ -14,14 +14,14 @@ import com.astrick.compose.databinding.ActivityNavHybridBinding
  *
  * Also remember the activity needs to be declared in the manifest to be able to launch
  */
-class HybridActivity : AppCompatActivity() {
+class ComposeViewActivity : AppCompatActivity() {
     
-    private lateinit var binding: ActivityNavHybridBinding
+    private lateinit var binding: ActivityComposeViewBinding
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
-        binding = ActivityNavHybridBinding.inflate(layoutInflater)
+        binding = ActivityComposeViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
     }
     
