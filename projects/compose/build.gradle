@@ -65,6 +65,10 @@ dependencies {
     // Compose: Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    // Compose: Theme adapters
+    implementation("com.google.android.material:compose-theme-adapter:1.2.1")
+    implementation("com.google.android.material:compose-theme-adapter-3:1.1.1")
+    implementation("com.google.accompanist:accompanist-themeadapter-appcompat:0.34.0")
 
     // Testing
     testImplementation "junit:junit:$junit"

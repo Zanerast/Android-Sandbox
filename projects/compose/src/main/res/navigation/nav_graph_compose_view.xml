@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/ComposeFragment"
-        android:name="com.astrick.compose.interoperability.ComposeViewFragment"
+        android:name="com.astrick.compose.interoperability.ThemingFragment"
         android:label="@string/interoperability_title"
         tools:layout="@layout/fragment_compose_view"/>
 </navigation>
