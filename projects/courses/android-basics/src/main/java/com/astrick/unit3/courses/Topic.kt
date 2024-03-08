@@ -17,7 +17,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.astrick.androidbasicscompose.R
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 import com.astrick.unit3.courses.data.DataSource
 import com.astrick.unit3.courses.data.Topic
 
@@ -66,11 +66,10 @@ fun Topic(
     }
 }
 
-// Preview
 @Preview
 @Composable
 fun TopicArchitecturePreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         Topic(DataSource.topics.first())
     }
 }
@@ -78,7 +77,7 @@ fun TopicArchitecturePreview() {
 @Preview
 @Composable
 fun TopicCraftsPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         Topic(DataSource.topics[1])
     }
 }

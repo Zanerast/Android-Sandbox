@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 import com.astrick.unit3.courses.data.DataSource
 import com.astrick.unit3.courses.data.Topic
 
@@ -32,11 +32,10 @@ fun Topics(
     }
 }
 
-// Previews
 @Preview(showSystemUi = true)
 @Composable
 fun TopicsPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         Topics(topics = DataSource.topics)
     }
 }

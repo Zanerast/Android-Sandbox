@@ -20,7 +20,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 import com.astrick.core.ui.theme.FontSize
 import com.astrick.core.ui.theme.LightGreen60
 import com.astrick.core.ui.theme.Spacing
@@ -64,7 +64,7 @@ fun LemonadeApp() {
 )
 @Composable
 fun PreviewLemonade() {
-    BaseComposeTheme {
+    SandboxTheme {
         LemonadeApp()
     }
 }

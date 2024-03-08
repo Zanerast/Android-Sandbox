@@ -7,7 +7,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 
 @Composable
 fun AnnotatedStringExample() {
@@ -23,7 +23,7 @@ fun AnnotatedStringExample() {
 @Preview
 @Composable
 private fun MainPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         AnnotatedStringExample()
     }
 }

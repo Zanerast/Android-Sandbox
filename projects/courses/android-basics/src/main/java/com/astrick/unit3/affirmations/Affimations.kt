@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.dp
 import com.astrick.unit3.affirmations.data.Affirmation
 import com.astrick.unit3.affirmations.data.Datasource
 import com.astrick.androidbasicscompose.R
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 
 @Composable
 fun Affirmations() {
@@ -70,7 +70,7 @@ fun AffirmationCard(
 @Preview
 @Composable
 fun CardPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         AffirmationCard(
             affirmation = Affirmation(
                 R.string.affirmation1,
@@ -83,7 +83,7 @@ fun CardPreview() {
 @Preview(showSystemUi = true)
 @Composable
 fun ListPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         AffirmationList(affirmations = Datasource().loadAffirmations())
     }
 }

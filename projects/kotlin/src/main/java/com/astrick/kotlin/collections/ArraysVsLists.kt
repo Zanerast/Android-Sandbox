@@ -20,20 +20,17 @@ fun main() {
 
     // List implemented this way is just a MutableList implementation wrapped in a restrictive List interface
     // Use a List over an array when you want immutable elements
+    val list = List(NUMBER_OF_ELEMENTS) { it }
+    
     // MutableList is also just an ArrayList under the hood. So nearly every type of list is an ArrayList
-//    val list = List(NUMBER_OF_ELEMENTS) { it }
-    val list = MutableList(NUMBER_OF_ELEMENTS) { it }
-//    val list = mutableListOf<Int>()
-//    repeat(NUMBER_OF_ELEMENTS) {
-//        list.add(it)
-//    }
+    val mutableList = MutableList(NUMBER_OF_ELEMENTS) { it }
     
     // Warm-up phase
     repeat(NUMBER_OF_ITERATIONS) {
         val random = Random.nextInt(MAX_INDEX)
         array[random]
         primitiveArray[random]
-        list[random]
+        mutableList[random]
     }
     
     // Benchmarking phase
@@ -58,7 +55,7 @@ fun main() {
         primitiveArrayGetTimes.add(primitiveArrayGetTime)
         
         val listTime = measureNanoTime {
-            list[randomGet]
+            mutableList[randomGet]
         }
         listGetTimes.add(listTime)
     
@@ -74,7 +71,7 @@ fun main() {
         primitiveArraySetTimes.add(primitiveArraySetTime)
         
         val listSetTime = measureNanoTime {
-            list[randomSet] = randomSet
+            mutableList[randomSet] = randomSet
         }
         listSetTimes.add(listSetTime)
     }

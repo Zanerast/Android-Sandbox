@@ -19,7 +19,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.astrick.androidbasicscompose.R
-import com.astrick.core.ui.theme.BaseComposeTheme
+import com.astrick.core.ui.theme.SandboxTheme
 import com.astrick.core.ui.theme.Spacing
 
 @Composable
@@ -67,7 +67,7 @@ private fun getDiceImageResource(result: Int): Int {
 )
 @Composable
 fun DiceRollerPreview() {
-    BaseComposeTheme {
+    SandboxTheme {
         DiceRoller()
     }
 }
