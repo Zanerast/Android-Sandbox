@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -21,11 +22,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
     }
 
     buildFeatures {
@@ -61,6 +62,7 @@ dependencies {
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.1"
     implementation("androidx.navigation:navigation-compose:$androidx_navigation_compose")
     // Compose: Debug
     debugImplementation("androidx.compose.ui:ui-tooling")
@@ -69,6 +71,21 @@ dependencies {
     implementation("com.google.android.material:compose-theme-adapter:1.2.1")
     implementation("com.google.android.material:compose-theme-adapter-3:1.1.1")
     implementation("com.google.accompanist:accompanist-themeadapter-appcompat:0.34.0")
+    // Compose: Paging
+    implementation "androidx.paging:paging-runtime-ktx:3.2.1"
+    implementation "androidx.paging:paging-compose:3.2.1"
+    // Database
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
+    implementation "androidx.room:room-runtime:$androidx_room"
+    implementation "androidx.room:room-ktx:$androidx_room"
+    implementation "androidx.room:room-paging:$androidx_room"
+    kapt "androidx.room:room-compiler:$androidx_room"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$squareup_retrohit"
+    implementation "com.squareup.retrofit2:converter-gson:$squareup_retrohit"
+    implementation "com.squareup.retrofit2:retrofit-mock:$squareup_retrohit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$squareup_okhttp"
 
     // Testing
     testImplementation "junit:junit:$junit"
