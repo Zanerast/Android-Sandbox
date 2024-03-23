@@ -1,4 +1,4 @@
-package com.astrick.compose.composition
+package com.astrick.compose.theming
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
