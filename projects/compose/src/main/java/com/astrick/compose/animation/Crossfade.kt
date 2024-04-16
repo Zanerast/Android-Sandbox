@@ -45,7 +45,9 @@ fun CrossFadeSample() {
                     selectedImage = newImage
                 },
                 indication = null, // used to remove ripple
-                interactionSource = MutableInteractionSource()
+                interactionSource = remember {
+                    MutableInteractionSource ()
+                }
             )
     ) {
         Crossfade(

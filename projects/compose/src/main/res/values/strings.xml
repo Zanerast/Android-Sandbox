@@ -7,6 +7,7 @@
     <string name="bottom_nav_home_title">Home</string>
     <string name="bottom_nav_phone_title">Numbers</string>
     <string name="bottom_nav_email_title">Email</string>
+    <string name="navigation_back">Back</string>
 
     <!-- Interoperability -->
     <string name="interoperability_title">Interoperability Screen</string>
