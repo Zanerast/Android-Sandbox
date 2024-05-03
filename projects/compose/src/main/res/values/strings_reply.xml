@@ -5,7 +5,6 @@
     <string name="navigation_drawer">Navigation Drawer</string>
     <string name="navigation_rail">Navigation Rail</string>
     <string name="navigation_bottom">Navigation Bottom</string>
-    <string name="navigation_back">Back</string>
     <string name="details_screen">Details Screen</string>
     <string name="tab_inbox">Inbox</string>
     <string name="tab_sent">Sent</string>
