@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -58,6 +59,13 @@ dependencies {
 
     // Core
     implementation "com.jakewharton.timber:timber:$timber"
+
+    // Database
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
+    implementation "androidx.room:room-runtime:$androidx_room"
+    implementation "androidx.room:room-ktx:$androidx_room"
+    implementation "androidx.room:room-paging:$androidx_room"
+    kapt "androidx.room:room-compiler:$androidx_room"
 
     // Retrofit
     implementation "com.squareup.retrofit2:retrofit:$squareup_retrohit"
