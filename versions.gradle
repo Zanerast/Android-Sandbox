@@ -33,3 +33,5 @@ ext.kotlin_coroutines_test_version = '1.6.4'
 
 ext.squareup_retrohit = '2.9.0'
 ext.squareup_okhttp = '4.12.0'
+
+ext.timber = '4.7.1'
