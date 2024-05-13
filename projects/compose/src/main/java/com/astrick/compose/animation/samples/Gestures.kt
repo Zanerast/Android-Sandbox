@@ -135,7 +135,7 @@ fun GestureAnimationDemo(
                         .height(80.dp)
                         .clip(RoundedCornerShape(8.dp))
                         .background(Color.LightGray)
-                        .border(2.dp, Color.BlueDark100, RoundedCornerShape(5.dp))
+                        .border(2.dp, BlueDark100, RoundedCornerShape(5.dp))
                         .swipeToDelete {
                             dismissed = true
                         }

@@ -13,7 +13,7 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.TextFieldValue
 
 @Composable
-fun TextInputSelectAll(
+fun TextInputSelectAllOnFocus(
     text: String,
     onValueChanged: (value: String) -> Unit,
 ) {

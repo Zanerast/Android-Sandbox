@@ -6,12 +6,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
-import com.astrick.compose.theming.custom.CustomTheme
+import com.astrick.core.ui.theme.SandboxTheme
 
 @Composable
 fun ExampleCard(
     modifier: Modifier = Modifier,
-    shape: Shape = CustomTheme.shape.buttonShape,
+    shape: Shape = SandboxTheme.shape.buttonShape,
     content: @Composable () -> Unit,
 ) {
     Card(

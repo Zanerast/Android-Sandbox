@@ -1,4 +1,4 @@
-package com.astrick.compose.theming.custom
+package com.astrick.core.ui.theme
 
 import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
