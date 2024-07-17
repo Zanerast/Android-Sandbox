@@ -19,13 +19,6 @@ import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.TextFieldValue
-import com.astrick.core.extensions.checkIfInt
-import com.astrick.core.extensions.remove
-import com.astrick.core.extensions.removeLetters
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
-import java.text.NumberFormat
-import java.util.Locale
 
 @Composable
 fun AutoSelectAllOnTouchTextField(

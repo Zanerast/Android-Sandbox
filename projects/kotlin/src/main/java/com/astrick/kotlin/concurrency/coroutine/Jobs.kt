@@ -1,4 +1,4 @@
-package com.astrick.concurrency.coroutine
+package com.astrick.kotlin.concurrency.coroutine
 
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler

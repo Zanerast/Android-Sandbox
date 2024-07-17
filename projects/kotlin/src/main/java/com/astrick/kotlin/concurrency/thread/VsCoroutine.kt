@@ -1,4 +1,4 @@
-package com.astrick.concurrency.thread
+package com.astrick.kotlin.concurrency.thread
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
