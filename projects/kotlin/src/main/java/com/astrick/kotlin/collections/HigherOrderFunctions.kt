@@ -29,6 +29,7 @@ fun main() {
     }
     
     // Partition
+    // Creates 2 groups (it's in the name)
     println("-------------------")
     val partitioned = cookies.partition { it.softBaked }
     val softBakedPartitioned = partitioned.first

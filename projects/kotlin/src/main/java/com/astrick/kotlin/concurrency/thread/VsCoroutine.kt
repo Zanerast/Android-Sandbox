@@ -28,7 +28,7 @@ private fun threadExample() {
 
 // Time taken to get to Main ends: 44ms
 // Note: routines are printed in correct order
-// There coroutines block the main thread for less time & are safer
+// Therefore coroutines block the main thread for less time & are safer
 fun coroutineExample() = runBlocking {
     println("Main starts")
     measureTimeMillis {
