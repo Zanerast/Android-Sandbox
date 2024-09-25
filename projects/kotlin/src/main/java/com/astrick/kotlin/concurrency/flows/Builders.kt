@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.last
 
 suspend fun main() {
     // flowOf
@@ -51,4 +52,20 @@ suspend fun main() {
     }.collect { emitted ->
         println("flow{}: $emitted")
     }
+
+    val flowNeverEnding = flow {
+        delay(500)
+        emit("flowB item emitted after 500ms")
+        delay(500)
+        emit("flowB item emitted after 1_000ms")
+        delay(500)
+        emit("flowB item emitted after 1_500ms")
+        while (true) {
+
+        }
+    }
+
+    val item  = flowNeverEnding.last()
+    // Will never print
+    println("Item $item")
 }
