@@ -1,29 +1,32 @@
-package com.astrick.compose.animation
+package com.astrick.sandbox.compose.animation
 
 import androidx.compose.animation.core.AnimationVector2D
 import androidx.compose.animation.core.TwoWayConverter
 import androidx.compose.animation.core.animateValueAsState
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-data class CardSize(val height: Dp, val width: Dp)
-
+/**
+ * A composable that demonstrates the animateValueAsState Compose function by
+ * animating the size of a card when clicked.
+ *
+ * @modifier Modifier to customize the layout and appearance of the composable.
+ */
 @Composable
-fun AnimateValueAsStateSample() {
+fun AnimateValueAsStateSample(modifier: Modifier = Modifier) {
 
     var isPressed by remember { mutableStateOf(false) }
     val cardSize by animateValueAsState(
@@ -35,22 +38,24 @@ fun AnimateValueAsStateSample() {
         label = "cardSizeAnimation"
     )
 
-    Box(modifier = Modifier) {
-        Card(
-            backgroundColor = Color.Blue,
-            modifier = Modifier
-                .size(width = cardSize.width, height = cardSize.height)
-                .align(Alignment.Center)
-                .padding(12.dp)
-                .clickable(
-                    indication = null,
-                    interactionSource = MutableInteractionSource(),
-                    onClick = {
-                        isPressed = !isPressed
-                    }
-                )
-        ) {
-
-        }
-    }
+    Box(modifier = modifier
+        .size(width = cardSize.width, height = cardSize.height)
+        .padding(12.dp)
+        .background(Color.Blue)
+        .clickable(
+            indication = null,
+            interactionSource = remember { MutableInteractionSource() },
+            onClick = {
+                isPressed = !isPressed
+            }
+        )
+    )
 }
+
+/**
+ * Data class representing the size (height and width) of the card.
+ *
+ * @param height The height of the card.
+ * @param width The width of the card.
+ */
+private data class CardSize(val height: Dp, val width: Dp)
