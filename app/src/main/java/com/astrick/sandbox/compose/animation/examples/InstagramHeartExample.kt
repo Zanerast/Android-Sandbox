@@ -46,23 +46,23 @@ import com.astrick.sandbox.compose.animation.examples.Like.LIKED
 fun InstagramHeartExample(
     modifier: Modifier = Modifier
 ) {
-    var likeState by remember { mutableStateOf(Like.GONE) }
+    var likeState by remember { mutableStateOf(GONE) }
     val transition = updateTransition(
         targetState = likeState,
         label = "transition"
     )
 
-    if (transition.currentState == Like.INITIAL)
-        likeState = Like.LIKED
-    else if (transition.currentState == Like.LIKED)
-        likeState = Like.GONE
+    if (transition.currentState == INITIAL)
+        likeState = LIKED
+    else if (transition.currentState == LIKED)
+        likeState = GONE
 
     val heartAlpha by transition.animateFloat(
         label = "heartAlpha",
         transitionSpec = alphaTransitionSpec()
     ) {
         when (it) {
-            Like.LIKED -> 1f
+            LIKED -> 1f
             else -> 0f
         }
     }
@@ -72,7 +72,7 @@ fun InstagramHeartExample(
         transitionSpec = scaleTransitionSpec(),
         targetValueByState = {
             when (it) {
-                Like.LIKED -> 3f
+                LIKED -> 3f
                 else -> 0f
             }
         }
@@ -83,7 +83,7 @@ fun InstagramHeartExample(
         .pointerInput(Unit) {
             detectTapGestures(
                 onDoubleTap = {
-                    likeState = Like.INITIAL
+                    likeState = INITIAL
                 }
             )
         }
@@ -104,14 +104,14 @@ fun InstagramHeartExample(
 @Composable
 private fun alphaTransitionSpec(): @Composable() (Transition.Segment<Like>.() -> FiniteAnimationSpec<Float>) = {
     when (this.targetState) {
-        Like.LIKED -> keyframes {
+        LIKED -> keyframes {
             durationMillis = 500
             0f at 0
             0.5f at 225
             1f at 400
         }
 
-        Like.GONE -> tween(durationMillis = 300)
+        GONE -> tween(durationMillis = 300)
         else -> snap()
     }
 }
@@ -119,8 +119,8 @@ private fun alphaTransitionSpec(): @Composable() (Transition.Segment<Like>.() ->
 @Composable
 private fun scaleTransitionSpec(): @Composable() (Transition.Segment<Like>.() -> FiniteAnimationSpec<Float>) = {
     when (this.targetState) {
-        Like.LIKED -> spring(dampingRatio = Spring.DampingRatioMediumBouncy)
-        Like.GONE -> tween(durationMillis = 300)
+        LIKED -> spring(dampingRatio = Spring.DampingRatioMediumBouncy)
+        GONE -> tween(durationMillis = 300)
         else -> snap()
     }
 }
