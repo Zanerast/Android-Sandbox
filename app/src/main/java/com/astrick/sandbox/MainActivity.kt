@@ -1,4 +1,4 @@
-package com.astrick.compose
+package com.astrick.sandbox
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
@@ -12,11 +12,6 @@ class MainActivity : AppCompatActivity() {
         
         
         setContent {
-//            RallyApp()
-//            LunchTrayApp()
-//            val window = calculateWindowSizeClass(activity = this)
-//            ReplyApp(window.widthSizeClass)
-//            UnScramble()
             AnimatedVisibilitySample()
         }
     }
