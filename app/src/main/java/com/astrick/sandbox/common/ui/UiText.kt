@@ -53,4 +53,5 @@ sealed interface UiText {
             is StringResource -> context.getString(id, *args)
         }
     }
+
 }
