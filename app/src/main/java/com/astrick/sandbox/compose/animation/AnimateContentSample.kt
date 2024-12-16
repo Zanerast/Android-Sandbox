@@ -30,14 +30,14 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 /**
-* A composable that demonstrates the AnimatedContent Compose function in a counter-like UI.
-*
-* The counter starts at 1 and can be incremented or decremented by clicking the respective buttons.
-* - The `MinusButton` decreases the number and wraps from 1 to 9.
-* - The `PlusButton` increases the number and wraps from 9 to 1.
-*
-* @param modifier Modifier to customize the layout and appearance of the composable.
-*/
+ * A composable that demonstrates Animated Content by animating a counter-like UI.
+ *
+ * The counter starts at 1 and can be incremented or decremented by clicking the respective buttons.
+ * - The `MinusButton` decreases the number and wraps from 1 to 9.
+ * - The `PlusButton` increases the number and wraps from 9 to 1.
+ *
+ * @param modifier Modifier to customize the layout and appearance of the composable.
+ */
 @Composable
 fun AnimateContentSample(modifier: Modifier = Modifier) {
     var number by remember { mutableIntStateOf(1) }

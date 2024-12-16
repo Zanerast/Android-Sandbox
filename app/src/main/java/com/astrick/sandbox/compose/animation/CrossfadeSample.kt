@@ -23,8 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 /**
- * A composable that demonstrates the Crossfade Compose by
- * animating between different images.
+ * A composable that demonstrates Crossfade by animating between different images.
  *
  * @modifier Modifier to customize the layout and appearance of the composable.
  */

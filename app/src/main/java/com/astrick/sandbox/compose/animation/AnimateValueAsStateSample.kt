@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
 /**
- * A composable that demonstrates the animateValueAsState Compose function by
+ * A composable that demonstrates animateValueAsState by
  * animating the size of a card when clicked.
  *
  * @modifier Modifier to customize the layout and appearance of the composable.
