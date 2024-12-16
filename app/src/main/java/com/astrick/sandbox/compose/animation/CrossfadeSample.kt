@@ -1,4 +1,4 @@
-package com.astrick.compose.animation
+package com.astrick.sandbox.compose.animation
 
 import androidx.compose.animation.Crossfade
 import androidx.compose.animation.core.tween
@@ -22,6 +22,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
+/**
+ * A composable that demonstrates the Crossfade Compose by
+ * animating between different images.
+ *
+ * @modifier Modifier to customize the layout and appearance of the composable.
+ */
 @Composable
 fun CrossFadeSample() {
     val images = listOf(
