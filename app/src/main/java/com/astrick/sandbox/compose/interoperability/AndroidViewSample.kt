@@ -1,16 +1,21 @@
-package com.astrick.compose.interoperability
+package com.astrick.sandbox.compose.interoperability
 
 import android.os.Build
 import android.widget.TextView
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.viewinterop.AndroidView
-import androidx.core.text.HtmlCompat
 
+/**
+ * Displays a `TextView` in Compose using `AndroidView`.
+ *
+ * @param modifier A [Modifier] for styling or layout purposes. Defaults to [Modifier].
+ * @param text The content to be displayed in the TextView
+ */
 @Composable
-fun HtmlTextView(
+fun AndroidViewSample(
     modifier: Modifier = Modifier,
-    instructions: String = "Something",
+    text: String = "Something",
 ) {
     AndroidView(
         modifier = modifier,
@@ -23,11 +28,8 @@ fun HtmlTextView(
                     setLineHeight(lineHeight)
             }
         },
-        update = {
-            it.text = HtmlCompat.fromHtml(
-                instructions,
-                HtmlCompat.FROM_HTML_MODE_COMPACT
-            )
+        update = { textView ->
+            textView.text = text
         }
     )
 }

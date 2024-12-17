@@ -42,9 +42,6 @@
             android:name="com.astrick.compose.navigation.hybrid.HybridActivity"
             android:exported="true" />
         <activity
-            android:name="com.astrick.compose.interoperability.ComposeViewActivity"
-            android:exported="true" />
-        <activity
             android:name="com.astrick.compose.lists.paging.SearchRepositoriesActivity"
             android:exported="true" />
     </application>

@@ -1,4 +1,4 @@
-package com.astrick.compose.interoperability
+package com.astrick.sandbox.compose.interoperability
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,17 +11,29 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
-import com.astrick.compose.databinding.FragmentComposeViewBinding
+import com.astrick.sandbox.databinding.FragmentComposeViewBinding
 
 /**
- * A simple [Fragment] subclass as the default destination in the navigation.
+ * A Fragment demonstrating the use of `ViewCompositionStrategy` for managing Compose views.
+ *
+ * Strategies explained:
+ * - **DisposeOnDetachedFromWindowOrReleasedFromPool** (Default): Combines `DisposeOnDetachedFromWindow`
+ *   with pooling support, suitable for RecyclerView items.
+ * - **DisposeOnLifecycleDestroyed**: Ensures the composition is disposed when the Fragment's view lifecycle ends,
+ *   avoiding premature state loss in scenarios like ViewPager usage.
+ * - **DisposeOnViewTreeLifecycleDestroyed**: Similar to `DisposeOnLifecycleDestroyed` but used when the
+ *   LifecycleOwner is dynamically determined via `ViewTreeLifecycleOwner`.
+ * - **DisposeOnDetachedFromWindow**: Disposes the composition when the view detaches from the window,
+ *   useful for mixed View/Compose screens.
+ *
+ * For more details:
+ * - [ViewCompositionStrategy documentation](https://developer.android.com/reference/kotlin/androidx/compose/ui/platform/ViewCompositionStrategy)
+ * - [ViewCompositionStrategy Demystified](https://medium.com/androiddevelopers/viewcompositionstrategy-demystefied-276427152f34)
  */
-class ComposeViewFragment : Fragment() {
+class ViewCompositionStrategyFragment : Fragment() {
 
     private var _binding: FragmentComposeViewBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -36,11 +48,7 @@ class ComposeViewFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.composeView.apply {
-            setViewCompositionStrategy(ViewCompositionStrategy.Default)
             /*
-                developer.android.com/reference/kotlin/androidx/compose/ui/platform/ViewCompositionStrategy
-                medium.com/androiddevelopers/viewcompositionstrategy-demystefied-276427152f34
-
                 DisposeOnDetachedFromWindowOrReleasedFromPool (Default):
                 - Same as DisposeOnDetachedFromWindow, but with extras
                 - Item in a pooling container such as RecyclerView.
@@ -78,16 +86,17 @@ class ComposeViewFragment : Fragment() {
                     since the ComposeView is an item in a RecyclerView, you would use
                     DisposeOnDetachedFromWindowOrReleasedFromPool, otherwise,
                     use DisposeOnLifecycleDestroyed.
+
+                References:
+                - developer.android.com/reference/kotlin/androidx/compose/ui/platform/ViewCompositionStrategy
+                - medium.com/androiddevelopers/viewcompositionstrategy-demystefied-276427152f34
              */
+            setViewCompositionStrategy(ViewCompositionStrategy.Default)
 
             setContent {
                 Column {
                     Text(
                         text = "Hey",
-                        modifier = Modifier.padding(12.dp)
-                    )
-                    Text(
-                        text = "Hey again",
                         modifier = Modifier.padding(12.dp)
                     )
                 }
