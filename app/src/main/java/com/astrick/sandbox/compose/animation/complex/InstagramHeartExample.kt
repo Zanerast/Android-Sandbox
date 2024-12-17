@@ -1,4 +1,4 @@
-package com.astrick.sandbox.compose.animation.examples
+package com.astrick.sandbox.compose.animation.complex
 
 import androidx.compose.animation.core.FiniteAnimationSpec
 import androidx.compose.animation.core.Spring
@@ -30,9 +30,9 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.astrick.compose.R
-import com.astrick.sandbox.compose.animation.examples.Like.GONE
-import com.astrick.sandbox.compose.animation.examples.Like.INITIAL
-import com.astrick.sandbox.compose.animation.examples.Like.LIKED
+import com.astrick.sandbox.compose.animation.complex.Like.GONE
+import com.astrick.sandbox.compose.animation.complex.Like.INITIAL
+import com.astrick.sandbox.compose.animation.complex.Like.LIKED
 
 /**
  * A composable function that mimics Instagram's double-tap heart animation effect.

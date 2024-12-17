@@ -1,4 +1,4 @@
-package com.astrick.sandbox.compose.animation.examples
+package com.astrick.sandbox.compose.animation.complex
 
 import android.widget.Toast
 import androidx.compose.animation.AnimatedVisibility

@@ -1,4 +1,4 @@
-package com.astrick.sandbox.compose.animation.examples
+package com.astrick.sandbox.compose.animation.complex
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
