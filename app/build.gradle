@@ -89,10 +89,30 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("androidx.navigation:navigation-compose:$androidx_navigation_compose")
+    implementation("androidx.constraintlayout:constraintlayout-compose:$androidx_compose_constraint_layout")
+
+    // Compose: Paging
+    implementation "androidx.paging:paging-runtime-ktx:3.2.1"
+    implementation "androidx.paging:paging-compose:3.2.1"
 
     // Debug
     debugImplementation "androidx.compose.ui:ui-tooling:$androidx_compose_ui"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose_ui"
+
+    // Room
+    implementation "androidx.room:room-runtime:$androidx_room"
+    implementation "androidx.room:room-ktx:$androidx_room"
+    implementation "androidx.room:room-paging:$androidx_room"
+    kapt "androidx.room:room-compiler:$androidx_room"
+
+    // Network
+    implementation "com.squareup.retrofit2:retrofit:$squareup_retrohit"
+    implementation "com.squareup.retrofit2:converter-gson:$squareup_retrohit"
+    implementation "com.squareup.retrofit2:retrofit-mock:$squareup_retrohit"
+    implementation "com.squareup.okhttp3:logging-interceptor:$squareup_okhttp"
+    implementation("com.squareup.moshi:moshi:1.15.2")
+    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
+    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
 
     // Testing
     testImplementation "junit:junit:$junit"

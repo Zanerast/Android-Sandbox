@@ -27,9 +27,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.astrick.compose.annotations.SandboxPreviews
-import com.astrick.compose.lists.StickyHeaders
-import com.astrick.core.ui.theme.SandboxTheme
 import kotlinx.coroutines.launch
 
 /**
@@ -116,15 +113,6 @@ private fun Item(it: String) {
             text = it,
             modifier = Modifier.padding(18.dp)
         )
-    }
-}
-
-
-@SandboxPreviews
-@Composable
-private fun MainPreview() {
-    SandboxTheme {
-        StickyHeaders()
     }
 }
 

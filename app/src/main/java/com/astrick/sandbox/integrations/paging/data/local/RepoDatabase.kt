@@ -1,19 +1,18 @@
-package com.astrick.compose.lists.paging.data.local
+package com.astrick.sandbox.integrations.paging.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.astrick.compose.lists.paging.data.remote.GithubSearchItemModel
 
 @Database(
-    entities = [GithubSearchItemModel::class, RemoteKeys::class],
+    entities = [GithubRepoDetailsEntity::class, RemoteKeysEntity::class],
     version = 1,
     exportSchema = false
 )
 abstract class RepoDatabase : RoomDatabase() {
     
-    abstract fun reposDao(): RepoDao
+    abstract fun reposDao(): GithubRepoDetailsDao
     abstract fun remoteKeysDao(): RemoteKeysDao
     
     companion object {

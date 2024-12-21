@@ -1,17 +1,16 @@
-package com.astrick.compose.lists.paging.data
+package com.astrick.sandbox.integrations.paging.data
 
 import androidx.paging.ExperimentalPagingApi
 import androidx.paging.LoadType
 import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
-import com.astrick.compose.lists.paging.data.remote.GithubSearchRemoteDataSource
-import com.astrick.compose.lists.paging.data.remote.IN_QUALIFIER
-import com.astrick.compose.lists.paging.data.local.RemoteKeys
-import com.astrick.compose.lists.paging.data.local.RepoDatabase
-import com.astrick.compose.lists.paging.data.remote.GithubSearchItemModel
-import retrofit2.HttpException
-import java.io.IOException
+import com.astrick.sandbox.integrations.paging.data.local.GithubRepoDetailsEntity
+import com.astrick.sandbox.integrations.paging.data.local.RemoteKeysEntity
+import com.astrick.sandbox.integrations.paging.data.local.RepoDatabase
+import com.astrick.sandbox.integrations.paging.data.remote.GithubRemoteApi
+import com.astrick.sandbox.integrations.paging.data.remote.toEntity
+import kotlinx.coroutines.delay
 
 // Reference:
 // https://developer.android.com/reference/kotlin/androidx/paging/RemoteMediator
@@ -22,19 +21,19 @@ private const val GITHUB_STARTING_PAGE_INDEX = 1
 @OptIn(ExperimentalPagingApi::class)
 class GithubSearchRemoteMediator(
     private val query: String,
-    private val service: GithubSearchRemoteDataSource,
+    private val service: GithubRemoteApi,
     private val repoDatabase: RepoDatabase
-) : RemoteMediator<Int, GithubSearchItemModel>() {
+) : RemoteMediator<Int, GithubRepoDetailsEntity>() {
 
     override suspend fun initialize(): InitializeAction {
-        // Launch remote refresh as soon as paging starts and do not trigger remote prepend or
-        // append until refresh has succeeded. In cases where we don't mind showing out-of-date,
-        // cached offline data, we can return SKIP_INITIAL_REFRESH instead to prevent paging
+        // Launch remote refresh as soon as paging starts and do not trigger remote prepend or append
+        // until refresh has succeeded. In cases where we don't mind showing out-of-date, cached
+        // offline data, we can return SKIP_INITIAL_REFRESH instead to prevent paging
         // triggering remote refresh.
         return InitializeAction.LAUNCH_INITIAL_REFRESH
     }
 
-    override suspend fun load(loadType: LoadType, state: PagingState<Int, GithubSearchItemModel>): MediatorResult {
+    override suspend fun load(loadType: LoadType, state: PagingState<Int, GithubRepoDetailsEntity>): MediatorResult {
         val page = when (loadType) {
             LoadType.REFRESH -> {
                 val remoteKeys = getRemoteKeyClosestToCurrentPosition(state)
@@ -65,7 +64,7 @@ class GithubSearchRemoteMediator(
             }
         }
 
-        val apiQuery = "$query+$IN_QUALIFIER"
+        val apiQuery = "$query+in:name,description"
 
         try {
             val apiResponse = service.searchRepos(apiQuery, page, state.config.pageSize)
@@ -82,21 +81,20 @@ class GithubSearchRemoteMediator(
                 val nextKey = if (endOfPaginationReached) null else page + 1
                 
                 val keys = repos.map {
-                    RemoteKeys(repoId = it.id, prevKey = prevKey, nextKey = nextKey)
+                    RemoteKeysEntity(repoId = it.id, prevKey = prevKey, nextKey = nextKey)
                 }
+                val repoEntities = repos.map { it.toEntity() }
                 
                 repoDatabase.remoteKeysDao().insertAll(keys)
-                repoDatabase.reposDao().insertAll(repos)
+                repoDatabase.reposDao().insertAll(repoEntities)
             }
             return MediatorResult.Success(endOfPaginationReached = endOfPaginationReached)
-        } catch (exception: IOException) {
-            return MediatorResult.Error(exception)
-        } catch (exception: HttpException) {
+        } catch (exception: Exception) {
             return MediatorResult.Error(exception)
         }
     }
     
-    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, GithubSearchItemModel>): RemoteKeys? {
+    private suspend fun getRemoteKeyForLastItem(state: PagingState<Int, GithubRepoDetailsEntity>): RemoteKeysEntity? {
         // Get the last page that was retrieved, that contained items.
         // From that last page, get the last item.
         // state.lastItemOrNull() doesn't seem to actually return the last item, it feels like an ordering bug on their end.
@@ -107,7 +105,7 @@ class GithubSearchRemoteMediator(
             }
     }
     
-    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, GithubSearchItemModel>): RemoteKeys? {
+    private suspend fun getRemoteKeyForFirstItem(state: PagingState<Int, GithubRepoDetailsEntity>): RemoteKeysEntity? {
         // Get the first page that was retrieved, that contained items.
         // From that first page, get the first item
         return state.pages.firstOrNull { it.data.isNotEmpty() }?.data?.firstOrNull()
@@ -118,8 +116,8 @@ class GithubSearchRemoteMediator(
     }
     
     private suspend fun getRemoteKeyClosestToCurrentPosition(
-        state: PagingState<Int, GithubSearchItemModel>
-    ): RemoteKeys? {
+        state: PagingState<Int, GithubRepoDetailsEntity>
+    ): RemoteKeysEntity? {
         // The paging library is trying to load data after the anchor position
         // Get the item closest to the anchor position
         return state.anchorPosition?.let { position ->

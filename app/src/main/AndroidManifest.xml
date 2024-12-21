@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Compose"
+        android:theme="@style/Theme.Sandbox"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
@@ -42,7 +42,7 @@
             android:name="com.astrick.compose.navigation.hybrid.HybridActivity"
             android:exported="true" />
         <activity
-            android:name="com.astrick.compose.lists.paging.SearchRepositoriesActivity"
+            android:name=".integrations.paging.SearchRepositoriesActivity"
             android:exported="true" />
     </application>
 

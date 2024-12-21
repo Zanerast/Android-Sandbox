@@ -1,4 +1,4 @@
-package com.astrick.sandbox.common.ui
+package com.astrick.sandbox.agnostic.ui
 
 import android.content.Context
 import androidx.annotation.StringRes

@@ -1,21 +1,22 @@
-package com.astrick.compose.lists.paging.ui
+package com.astrick.sandbox.integrations.paging.ui
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.Text
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemKey
-import com.astrick.compose.lists.paging.ui.items.GithubSearchItem
-import com.astrick.compose.lists.paging.ui.items.SeparatorItem
+import com.astrick.sandbox.integrations.paging.ui.items.GithubSearchItem
+import com.astrick.sandbox.integrations.paging.ui.items.SeparatorItem
+import com.astrick.sandbox.integrations.paging.ui.models.UiListItem
 
 @Composable
 fun SearchResultsContent(
-    lazyItems: LazyPagingItems<UiModel>
+    lazyItems: LazyPagingItems<UiListItem>
 ) {
     LazyColumn {
         if (lazyItems.loadState.refresh == LoadState.Loading) {
@@ -32,20 +33,20 @@ fun SearchResultsContent(
             count = lazyItems.itemCount,
             key = lazyItems.itemKey { model ->
                 when (model) {
-                    is UiModel.RepoItem -> {
-                        model.githubSearchItemModel.id
+                    is UiListItem.RepoItem -> {
+                        model.githubRepoDetails.name
                     }
                     
-                    is UiModel.SeparatorItem -> {
+                    is UiListItem.SeparatorItem -> {
                         model.description
                     }
                 }
             }
         ) { index ->
             val item = lazyItems[index]
-            if (item is UiModel.RepoItem) {
-                GithubSearchItem(githubSearchItemModel = item.githubSearchItemModel)
-            } else if (item is UiModel.SeparatorItem) {
+            if (item is UiListItem.RepoItem) {
+                GithubSearchItem(githubRepoDetails = item.githubRepoDetails)
+            } else if (item is UiListItem.SeparatorItem) {
                 SeparatorItem(separatorItem = item)
             }
         }

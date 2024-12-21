@@ -1,22 +1,22 @@
-package com.astrick.compose.lists.paging
+package com.astrick.sandbox.integrations.paging
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import com.astrick.compose.lists.paging.di.Injection
-import com.astrick.compose.lists.paging.ui.GithubSearchViewModel
+import com.astrick.sandbox.integrations.paging.di.PagingIntegrationInjection
+import com.astrick.sandbox.integrations.paging.ui.GithubSearchViewModel
 
 class SearchRepositoriesActivity : AppCompatActivity() {
-    
+
     private lateinit var viewModel: GithubSearchViewModel
-    
+
     private var query = DEFAULT_QUERY
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         
         viewModel = ViewModelProvider(
-            this, Injection.provideViewModelFactory(this)
+            this, PagingIntegrationInjection.provideViewModelFactory(this)
         )[GithubSearchViewModel::class.java]
         
         query = savedInstanceState?.getString(LAST_SEARCH_QUERY) ?: DEFAULT_QUERY

@@ -1,15 +1,15 @@
-package com.astrick.compose.lists.paging.ui.items
+package com.astrick.sandbox.integrations.paging.ui.items
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ForkLeft
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -19,10 +19,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.astrick.compose.R
-import com.astrick.compose.lists.paging.data.remote.GithubSearchItemModel
+import com.astrick.sandbox.integrations.paging.domain.GithubRepoDetails
 
 @Composable
-fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
+fun GithubSearchItem(githubRepoDetails: GithubRepoDetails) {
     
     ConstraintLayout(
         Modifier
@@ -36,7 +36,7 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
         val (fullName, description, language, stars, starsText, forks, forksText) = createRefs()
         
         Text(
-            githubSearchItemModel.fullName, style = MaterialTheme.typography.h5, modifier = Modifier
+            githubRepoDetails.fullName, style = MaterialTheme.typography.titleLarge, modifier = Modifier
                 .padding(8.dp)
                 .constrainAs(fullName) {
                     top.linkTo(parent.top)
@@ -45,8 +45,8 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
         )
         
         Text(
-            text = githubSearchItemModel.description.toString(),
-            style = MaterialTheme.typography.subtitle1,
+            text = githubRepoDetails.description.toString(),
+            style = MaterialTheme.typography.titleMedium,
             maxLines = 5,
             modifier = Modifier
                 .padding(8.dp)
@@ -57,8 +57,8 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
         )
         
         Text(
-            text = stringResource(R.string.language, githubSearchItemModel.language.toString()),
-            style = MaterialTheme.typography.caption,
+            text = stringResource(R.string.language, githubRepoDetails.language.toString()),
+            style = MaterialTheme.typography.labelMedium,
             modifier = Modifier
                 .padding(8.dp)
                 .constrainAs(language) {
@@ -79,7 +79,7 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
                  }
         )
         Text(
-            githubSearchItemModel.stars.toString(), style = MaterialTheme.typography.caption,
+            githubRepoDetails.stars.toString(), style = MaterialTheme.typography.labelMedium,
             modifier = Modifier
                 .padding(8.dp)
                 .constrainAs(starsText) {
@@ -98,7 +98,7 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
                  }
         )
         Text(
-            githubSearchItemModel.forks.toString(), style = MaterialTheme.typography.caption,
+            githubRepoDetails.forks.toString(), style = MaterialTheme.typography.labelMedium,
             modifier = Modifier
                 .padding(8.dp)
                 .constrainAs(forksText) {
@@ -115,12 +115,10 @@ fun GithubSearchItem(githubSearchItemModel: GithubSearchItemModel) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewRepoItem() {
-    val githubSearchItemModel = GithubSearchItemModel(
-        1, "repo", "author/repo", "An awesome library that you need to do awesome stuff",
+    val githubSearchItemModel = GithubRepoDetails(
+        "repo", "author/repo", "An awesome library that you need to do awesome stuff",
         "https://example.com", 20000, 10, "Kotlin"
     )
     
-    GithubSearchItem(githubSearchItemModel = githubSearchItemModel)
-    
-    
+    GithubSearchItem(githubRepoDetails = githubSearchItemModel)
 }
