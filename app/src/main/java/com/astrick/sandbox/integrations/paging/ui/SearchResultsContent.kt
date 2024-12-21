@@ -10,8 +10,8 @@ import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemKey
-import com.astrick.sandbox.integrations.paging.ui.items.GithubSearchItem
-import com.astrick.sandbox.integrations.paging.ui.items.SeparatorItem
+import com.astrick.sandbox.integrations.paging.ui.widgets.GithubSearchItem
+import com.astrick.sandbox.integrations.paging.ui.components.SeparatorItem
 import com.astrick.sandbox.integrations.paging.ui.models.UiListItem
 
 @Composable

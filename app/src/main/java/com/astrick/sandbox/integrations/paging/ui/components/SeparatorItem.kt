@@ -1,4 +1,4 @@
-package com.astrick.sandbox.integrations.paging.ui.items
+package com.astrick.sandbox.integrations.paging.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxWidth

@@ -42,10 +42,10 @@ fun GithubRepoDetailsResponse.toEntity(): GithubRepoDetailsEntity {
         id = id,
         name = name,
         fullName = fullName,
-        description = description,
+        description = description ?: "",
         url = url,
         stars = stars,
         forks = forks,
-        language = language
+        language = language ?: ""
     )
 }
