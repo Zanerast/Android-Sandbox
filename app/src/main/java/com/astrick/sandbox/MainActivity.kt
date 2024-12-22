@@ -3,7 +3,7 @@ package com.astrick.sandbox
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.astrick.sandbox.compose.lists.RevealButtonOnScrollList
+import com.astrick.sandbox.compose.navigation.bottom.BottomNavigationScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
-            RevealButtonOnScrollList()
+            BottomNavigationScreen()
         }
     }
 

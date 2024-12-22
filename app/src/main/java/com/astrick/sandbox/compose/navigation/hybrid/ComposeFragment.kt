@@ -1,41 +1,41 @@
-package com.astrick.compose.navigation.hybrid
+package com.astrick.sandbox.compose.navigation.hybrid
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.Button
-import androidx.compose.material.Text
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
-import androidx.navigation.fragment.findNavController
-import com.astrick.compose.R
+import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import com.astrick.sandbox.app.R
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple compose [Fragment] to use a destination for hybrid navigation.
  */
 class ComposeFragment : Fragment() {
-    
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         return ComposeView(requireContext()).apply {
             setContent {
-                ComposeScreen() { nav ->
-                    findNavController().navigate(nav)
-                }
+                ComposeScreen(
+                    onNavigate = {
+                        findNavController().navigate(it)
+                    }
+                )
             }
         }
     }
-    
-    
 }
 
 @Composable

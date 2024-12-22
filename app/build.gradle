@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace 'com.astrick.sandbox'
+    namespace 'com.astrick.sandbox.app'
     /**
      * compileSdk specifies the Android API level Gradle should use to
      * compile your app. This means your app can use the API features included in
@@ -80,6 +80,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
     implementation "com.google.android.material:material:$google_android_material"
+    implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation"
 
     // Compose
     implementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))

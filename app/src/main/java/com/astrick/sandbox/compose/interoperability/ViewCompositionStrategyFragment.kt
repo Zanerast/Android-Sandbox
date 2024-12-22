@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.Fragment
-import com.astrick.sandbox.databinding.FragmentComposeViewBinding
+import com.astrick.sandbox.app.databinding.FragmentComposeViewBinding
 
 /**
  * A Fragment demonstrating the use of `ViewCompositionStrategy` for managing Compose views.

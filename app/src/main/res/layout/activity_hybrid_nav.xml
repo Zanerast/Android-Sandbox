@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".navigation.hybrid.HybridActivity">
+    tools:context="com.astrick.sandbox.compose.navigation.hybrid.HybridNavigationActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/nav_host_fragment_content_interoperability"
+        android:id="@+id/nav_host_fragment_content_nav_hybrid"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -17,6 +17,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/nav_graph_compose_view" />
+        app:navGraph="@navigation/nav_graph_for_hybrid_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Sandbox"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name="com.astrick.sandbox.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -39,10 +39,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.astrick.compose.navigation.hybrid.HybridActivity"
+            android:name="com.astrick.sandbox.compose.navigation.hybrid.HybridNavigationActivity"
             android:exported="true" />
         <activity
-            android:name=".integrations.paging.SearchRepositoriesActivity"
+            android:name="com.astrick.sandbox.integrations.paging.SearchRepositoriesActivity"
             android:exported="true" />
     </application>
 
