@@ -30,7 +30,7 @@ class GithubSearchRemoteMediator(
     /**
      * Determines the initial action when paging starts.
      *
-     * @return [InitializeAction.LAUNCH_INITIAL_REFRESH] to refresh data from the network.
+     * @return [androidx.paging.RemoteMediator.InitializeAction.LAUNCH_INITIAL_REFRESH] to refresh data from the network.
      */
     override suspend fun initialize(): InitializeAction {
         // In cases where we don't mind showing out-of-date, cached offline data, we can return
@@ -43,7 +43,7 @@ class GithubSearchRemoteMediator(
      *
      * @param loadType The type of load operation: [LoadType.REFRESH], [LoadType.PREPEND], or [LoadType.APPEND].
      * @param state The current state of the paging system.
-     * @return [MediatorResult] indicating success or error.
+     * @return [androidx.paging.RemoteMediator.MediatorResult] indicating success or error.
      */
     override suspend fun load(loadType: LoadType, state: PagingState<Int, GithubRepoDetailsEntity>): MediatorResult {
         val remoteKeysForFirstItem = getRemoteKeyForFirstItem(state)
@@ -52,7 +52,7 @@ class GithubSearchRemoteMediator(
         }
 
         val page = loadType.getPage(state)
-            ?: return MediatorResult.Success(endOfPaginationReached = true)
+            ?: return MediatorResult.Success(endOfPaginationReached = false)
 
         val apiQuery = "$query+in:name,description"
 
