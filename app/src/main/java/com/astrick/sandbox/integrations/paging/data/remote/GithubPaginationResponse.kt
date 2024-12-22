@@ -8,12 +8,10 @@ import com.squareup.moshi.JsonClass
  *
  * @property total the total number of repositories found
  * @property items the list of repository details for the current page
- * @property nextPage the page number for the next set of results, if available
  */
 @JsonClass(generateAdapter = true)
 data class GithubPaginationResponse(
     @Json(name = "total_count")
     val total: Int = 0,
     val items: List<GithubRepoDetailsResponse> = emptyList(),
-    val nextPage: Int? = null
 )
