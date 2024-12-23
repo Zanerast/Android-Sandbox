@@ -68,8 +68,6 @@ android {
 
 dependencies {
 
-    implementation project(':projects:courses:random-codelabs')
-
     implementation project(":core")
 
     // Android

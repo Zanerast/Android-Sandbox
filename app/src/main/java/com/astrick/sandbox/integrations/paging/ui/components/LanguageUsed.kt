@@ -7,7 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import com.astrick.compose.R
+import com.astrick.sandbox.app.R
 
 /**
  * Displays the programming language used in a repository.

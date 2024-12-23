@@ -29,7 +29,7 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import com.astrick.compose.R
+import com.astrick.sandbox.app.R
 import com.astrick.sandbox.compose.animation.complex.Like.GONE
 import com.astrick.sandbox.compose.animation.complex.Like.INITIAL
 import com.astrick.sandbox.compose.animation.complex.Like.LIKED

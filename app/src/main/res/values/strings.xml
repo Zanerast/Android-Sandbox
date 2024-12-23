@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Sandbox</string>
+
+    <!-- Compose: Navigation -->
+    <string name="bottom_nav_home_title">Home</string>
+    <string name="bottom_nav_phone_title">Numbers</string>
+    <string name="bottom_nav_email_title">Email</string>
+
+    <!-- Integrations: Paging -->
+    <string name="language">Language: %s</string>
+
 </resources>

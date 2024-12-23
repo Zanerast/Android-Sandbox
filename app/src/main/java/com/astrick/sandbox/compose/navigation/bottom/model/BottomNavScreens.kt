@@ -2,7 +2,7 @@ package com.astrick.sandbox.compose.navigation.bottom.model
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.astrick.compose.R
+import com.astrick.sandbox.app.R
 
 /**
  * Represents the screens available in the bottom navigation bar.

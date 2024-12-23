@@ -26,12 +26,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
-import com.astrick.compose.R
+import com.astrick.sandbox.app.R
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
@@ -97,7 +96,7 @@ fun ClickToMoveTheCupcakeExample(
 @Composable
 private fun CupcakeText(modifier: Modifier = Modifier) {
     Text(
-        text = stringResource(R.string.click_to_move_cupcake),
+        text = "Click to move the cupcake",
         textAlign = TextAlign.Center,
         modifier = modifier
             .fillMaxWidth()

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/XmlFragment"
         android:name="com.astrick.sandbox.compose.navigation.hybrid.XmlFragment"
-        android:label="@string/xml_fragment_label"
+        android:label="XML Fragment label"
         tools:layout="@layout/fragment_hybrid_nav">
 
         <action
@@ -18,7 +18,7 @@
     <fragment
         android:id="@+id/ComposeFragment"
         android:name="com.astrick.sandbox.compose.navigation.hybrid.ComposeFragment"
-        android:label="@string/compose_fragment_label">
+        android:label="Compose Fragment Label">
 
         <action
             android:id="@+id/action_ComposeFragment_to_XmlFragment"
