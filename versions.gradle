@@ -8,7 +8,7 @@ ext.min_sdk = 26
 ext.compose_compiler_version = '1.4.7'
 ext.kotlin_version = '1.8.21'
 
-ext.androidx_activity_compose = '1.8.2'
+ext.androidx_activity_compose = '1.9.3'
 ext.androidx_appcompact = '1.6.1'
 ext.androidx_core_ktx = '1.7.2'
 ext.androidx_compose_ui = '1.4.3'
