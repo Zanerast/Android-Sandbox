@@ -10,7 +10,7 @@ ext.kotlin_version = '1.8.21'
 
 ext.androidx_activity_compose = '1.9.3'
 ext.androidx_appcompact = '1.6.1'
-ext.androidx_core_ktx = '1.7.2'
+ext.androidx_core_ktx = '1.13.1'
 ext.androidx_compose_ui = '1.4.3'
 ext.androidx_compose_bom = '2024.02.00'
 ext.androidx_compose_constraint_layout = '1.0.1'

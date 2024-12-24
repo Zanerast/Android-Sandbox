@@ -68,8 +68,6 @@ android {
 
 dependencies {
 
-    implementation project(":core")
-
     // Android
     implementation "androidx.activity:activity-compose:$androidx_activity_compose"
     implementation "androidx.appcompat:appcompat:$androidx_appcompact"
