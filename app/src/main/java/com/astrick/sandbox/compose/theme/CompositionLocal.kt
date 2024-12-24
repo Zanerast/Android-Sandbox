@@ -1,4 +1,4 @@
-package com.astrick.core.ui.theme
+package com.astrick.sandbox.compose.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
@@ -14,26 +14,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
-// Ref: developer.android.com/jetpack/compose/compositionlocal
-
-/**
- * The advantage to using CompositionLocal of a global variable is:
- * we can dynamically change the value based on conditions,
- * as shown where elevation changes based on the current theme (isSystemInDarkTheme())
- */
-
-/**
+/*
  * compositionLocalOf:
  * Changing the value provided during recomposition invalidates
  * only the content that reads its current value.
+ *
+ * A use-case might be: If your app supports user-selected themes (like light or dark mode) and
+ * you want different parts of your UI to react to theme changes without rebuilding
+ * the entire composable tree, you can use compositionLocalOf.
  */
 
-/**
+/*
  * staticCompositionLocalOf:
  * Unlike compositionLocalOf, reads of a staticCompositionLocalOf are not tracked by Compose.
  * Changing the value causes the entirety of the content lambda where the
  * CompositionLocal is provided to be recomposed, instead of just the
  * places where the current value is read in the Composition.
+ */
+
+/*
+ * The advantage to using CompositionLocal of a global variable is:
+ * we can dynamically change the value based on conditions,
+ * as shown where elevation changes based on the current theme (isSystemInDarkTheme())
+ *
+ * If the value provided to the CompositionLocal is highly unlikely to change or will never change,
+ * use staticCompositionLocalOf to get performance benefits.
+ *
+ * Ref: developer.android.com/jetpack/compose/compositionlocal
  */
 
 data class Elevations(val card: Dp = 0.dp, val default: Dp = 0.dp)
