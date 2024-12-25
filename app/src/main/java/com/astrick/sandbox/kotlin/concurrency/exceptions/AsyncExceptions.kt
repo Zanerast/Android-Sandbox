@@ -1,29 +1,29 @@
-package com.astrick.kotlin.concurrency.coroutine.exceptions
+package com.astrick.sandbox.kotlin.concurrency.exceptions
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-fun main() {
+/**
+ * Demonstrates handling exceptions in an `async` coroutine.
+ *
+ * This example shows how exceptions thrown inside an `async` coroutine are captured and rethrown when `await()` is called.
+ */
+fun asyncExceptionExample() {
     val exHandler = CoroutineExceptionHandler { _, throwable ->
         println("Caught $throwable in Coroutine Exception Handler")
     }
-    val childExHandler = CoroutineExceptionHandler { _, throwable ->
-        println("Should NOT catch as this is the child")
-    }
-
     val scope = CoroutineScope(Job() + exHandler)
-    // Exception is stored in the deferred object
-    val deferred = scope.async(childExHandler) {
-        delay(200)
+
+    val deferred = scope.async {
+        // RuntimeException will be stored in the deferred object
         throw RuntimeException()
     }
 
     scope.launch {
-        // Will now throw the stored exception
+        // await() will now cause the stored exception to be thrown
         deferred.await()
     }
 
