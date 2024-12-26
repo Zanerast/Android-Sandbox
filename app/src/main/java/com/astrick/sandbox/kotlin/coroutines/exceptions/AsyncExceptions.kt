@@ -1,4 +1,4 @@
-package com.astrick.sandbox.kotlin.concurrency.exceptions
+package com.astrick.sandbox.kotlin.coroutines.exceptions
 
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
