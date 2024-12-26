@@ -1,4 +1,4 @@
-package com.astrick.sandbox.kotlin.concurrency
+package com.astrick.sandbox.kotlin.coroutines.channels
 
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow

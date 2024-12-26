@@ -1,7 +1,7 @@
-package com.astrick.sandbox.kotlin.concurrency
+package com.astrick.sandbox.kotlin.coroutines.channels
 
-import com.astrick.sandbox.kotlin.concurrency.CounterMsg.GetCounter
-import com.astrick.sandbox.kotlin.concurrency.CounterMsg.IncCounter
+import com.astrick.sandbox.kotlin.coroutines.channels.CounterMsg.GetCounter
+import com.astrick.sandbox.kotlin.coroutines.channels.CounterMsg.IncCounter
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.ObsoleteCoroutinesApi
 import kotlinx.coroutines.channels.actor
