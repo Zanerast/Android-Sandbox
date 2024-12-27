@@ -1,4 +1,4 @@
-package com.astrick.testing
+package com.astrick.compose.agnostic
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
@@ -9,6 +9,15 @@ import kotlinx.coroutines.test.setMain
 import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
+/**
+ * A JUnit `TestWatcher` rule to set up and manage the coroutine dispatcher for testing purposes.
+ *
+ * This rule replaces the default `Dispatchers.Main` with a test dispatcher, ensuring that coroutine-based
+ * code is properly tested in a controlled environment. It also resets the main dispatcher after the test completes.
+ *
+ * @property dispatcher The `CoroutineDispatcher` to use during tests. Defaults to `StandardTestDispatcher`.
+ */
+@Suppress("unused")
 @OptIn(ExperimentalCoroutinesApi::class)
 class CoroutineScopeRule(
     val dispatcher: CoroutineDispatcher = StandardTestDispatcher()
@@ -17,7 +26,6 @@ class CoroutineScopeRule(
     override fun starting(description: Description) {
         super.starting(description)
         Dispatchers.setMain(dispatcher)
-        
     }
     
     override fun finished(description: Description) {
