@@ -3,6 +3,7 @@ package com.astrick.sandbox.agnostic.ui.compose
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 
+@Suppress("MemberVisibilityCanBePrivate", "unused")
 object NavHostControllerExt {
 
     /**
