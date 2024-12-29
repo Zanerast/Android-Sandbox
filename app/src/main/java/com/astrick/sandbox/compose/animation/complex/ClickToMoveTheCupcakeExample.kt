@@ -6,6 +6,7 @@ import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -30,7 +31,6 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
 import com.astrick.sandbox.app.R
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 /**
@@ -66,17 +66,10 @@ fun ClickToMoveTheCupcakeExample(
                 }
                 .background(Color.Red)
                 .pointerInput(Unit) {
-                    coroutineScope {
-                        while (true) {
-                            val position = awaitPointerEventScope {
-                                // Wait for the first down event (user clicks)
-                                val pos = awaitFirstDown().position
-                                // Capture the position of the click
-                                pos
-                            }
-                            // Animate cupcake movement
-                            launch { offset.animateTo(position, spring()) }
-                        }
+                    awaitEachGesture {
+                        val pos = awaitFirstDown().position
+                        // Animate cupcake movement
+                        scope.launch { offset.animateTo(pos, spring()) }
                     }
                 }
         ) {
