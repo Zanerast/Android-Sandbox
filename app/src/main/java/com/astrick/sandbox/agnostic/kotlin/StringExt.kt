@@ -1,4 +1,4 @@
-package com.astrick.sandbox.agnostic.primitives
+package com.astrick.sandbox.agnostic.kotlin
 
 @Suppress("unused")
 object StringExt {
@@ -36,6 +36,17 @@ object StringExt {
         return this.replace("[a-zA-Z]".toRegex(), "")
     }
 
-
+    /**
+     * Safely converts a [String] to an [Int].
+     *
+     * @return The integer value of the string, or `0` if the string cannot be converted.
+     */
+    fun String.toIntOrZero(): Int {
+        return try {
+            toInt()
+        } catch (e: NumberFormatException) {
+            0
+        }
+    }
 
 }
