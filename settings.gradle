@@ -35,4 +35,3 @@ dependencyResolutionManagement {
 rootProject.name = "Sandbox"
 include ':app'
 include ':testing'
-include ':projects:kotlin'
