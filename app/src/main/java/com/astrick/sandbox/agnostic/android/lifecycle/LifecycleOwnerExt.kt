@@ -1,4 +1,4 @@
-package com.astrick.sandbox.agnostic.ui.lifecycle
+package com.astrick.sandbox.agnostic.android.lifecycle
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner

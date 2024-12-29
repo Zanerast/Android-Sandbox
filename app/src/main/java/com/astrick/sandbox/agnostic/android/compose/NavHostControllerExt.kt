@@ -1,4 +1,4 @@
-package com.astrick.sandbox.agnostic.ui.compose
+package com.astrick.sandbox.agnostic.android.compose
 
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
