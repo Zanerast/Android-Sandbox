@@ -2,6 +2,7 @@ package com.astrick.sandbox.compose.animation.complex
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.VectorConverter
+import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,11 +16,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
@@ -27,6 +25,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.unit.dp
@@ -52,13 +51,19 @@ fun ClickToMoveTheCupcakeExample(
         modifier = modifier.fillMaxSize()
     ) {
         val offset = remember { Animatable(Offset(0f, 0f), Offset.VectorConverter) }
-        var size = IntSize(0, 0)
-        var isClicked by remember { mutableStateOf(false) }
+        var size: IntSize
+        val scope = rememberCoroutineScope()
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
-                .onSizeChanged { size = it }
+                .onSizeChanged {
+                    size = it
+                    scope.launch {
+                        // Center cupcake
+                        offset.animateTo(Offset(size.width / 2f, size.height / 2f), snap())
+                    }
+                }
                 .background(Color.Red)
                 .pointerInput(Unit) {
                     coroutineScope {
@@ -66,7 +71,6 @@ fun ClickToMoveTheCupcakeExample(
                             val position = awaitPointerEventScope {
                                 // Wait for the first down event (user clicks)
                                 val pos = awaitFirstDown().position
-                                isClicked = true
                                 // Capture the position of the click
                                 pos
                             }
@@ -79,14 +83,11 @@ fun ClickToMoveTheCupcakeExample(
             CupcakeText()
             CupcakeImage(
                 modifier = Modifier
-                    .align(Alignment.Center)
+                    .size(50.dp)
                     .offset {
-                        // Adjust the cupcake position based on the click
-                        val xAdjustment = if (isClicked) (size.width / 2) else 0
-                        val yAdjustment = if (isClicked) (size.height / 2) else 0
-                        val x = offset.value.x.toInt() - xAdjustment
-                        val y = offset.value.y.toInt() - yAdjustment
-                        IntOffset(x, y)
+                        val xPos = offset.value.x - 25.dp.toPx()
+                        val yPos = offset.value.y - 25.dp.toPx()
+                        IntOffset(xPos.toInt(), yPos.toInt())
                     }
             )
         }
@@ -112,7 +113,11 @@ private fun CupcakeImage(
         painter = painterResource(id = R.drawable.cupcake),
         contentDescription = null,
         modifier = modifier
-            .size(50.dp)
-            .padding(8.dp)
     )
+}
+
+@Preview
+@Composable
+private fun MainPreview() {
+    ClickToMoveTheCupcakeExample()
 }
