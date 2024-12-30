@@ -69,55 +69,23 @@ android {
 dependencies {
 
     // Android
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.google.android.material)
-    implementation(libs.androidx.navigation)
+    implementation(libs.bundles.android)
 
     // Compose
     implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.material.icons)
-    implementation(libs.androidx.compose.material3)
-    implementation(libs.androidx.compose.material3.windowSizeClass)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.toolingPreview)
-    implementation(libs.androidx.navigation.compose)
-    implementation(libs.androidx.constraintLayout.compose)
-
-    // Compose: Paging
-    implementation(libs.androidx.paging)
-    implementation(libs.androidx.paging.compose)
-
-    // Debug
-    debugImplementation(libs.androidx.compose.ui.tooling)
-    debugImplementation(libs.androidx.compose.ui.testManifest)
+    implementation(libs.bundles.compose)
+    debugImplementation(libs.bundles.compose.debug)
 
     // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    implementation(libs.androidx.room.paging)
+    implementation(libs.bundles.room)
     kapt(libs.androidx.room.compiler)
 
     // Network
-    implementation(libs.squareup.retrofit2.retrofit)
-    implementation(libs.squareup.retrofit2.converterGson)
-    implementation(libs.squareup.retrofit2.converterMoshi)
-    implementation(libs.squareup.retrofit2.mock)
-    implementation(libs.squareup.okhttp.logging)
-    implementation(libs.squareup.moshi)
-    implementation(libs.squareup.moshi.kotlin)
+    implementation(libs.bundles.networking)
 
     // Testing
-    testImplementation(libs.junit)
-    testImplementation(libs.jetbrains.kotlinx.coroutinesTest)
-
+    testImplementation(libs.bundles.testing.unit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
-
-    androidTestImplementation(libs.androidx.compose.ui.testJunit)
-    androidTestImplementation(libs.androidx.navigation.testing)
-    androidTestImplementation(libs.androidx.test.espresso)
-    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.bundles.testing.android)
 
 }

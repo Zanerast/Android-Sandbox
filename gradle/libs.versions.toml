@@ -35,41 +35,73 @@ gradle = "8.7.3"
 compose-compiler = "1.4.7"
 
 [libraries]
+# Android
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidx-activity-compose" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core-ktx" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
+androidx-navigation = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidx-navigation" }
+google-android-material = { group = "com.google.android.material", name = "material", version.ref = "google-android-material" }
+# Compose
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidx-compose-bom" }
 androidx-compose-material-icons = { group = "androidx.compose.material", name = "material-icons-extended" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-compose-material3-windowSizeClass = { group = "androidx.compose.material3", name = "material3-window-size-class" }
 androidx-compose-ui = { group = "androidx.compose.ui", name = "ui" }
-androidx-compose-ui-testJunit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
-androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
-androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-toolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-constraintLayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidx-constraintLayout-compose" }
-androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidx-lifecycle" }
-androidx-navigation = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "androidx-navigation" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "androidx-navigation" }
-androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidx-navigation" }
-androidx-paging = { group = "androidx.paging", name = "paging-runtime", version.ref = "androidx-paging" }
+androidx-constraintLayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version.ref = "androidx-constraintLayout-compose" }
 androidx-paging-compose = { group = "androidx.paging", name = "paging-compose", version.ref = "androidx-paging" }
+# Compose-Debug
+androidx-compose-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+# Networking
+squareup-retrofit2-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "squareup-retrofit" }
+squareup-retrofit2-converterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "squareup-retrofit" }
+squareup-retrofit2-converterMoshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "squareup-retrofit" }
+squareup-okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "squareup-okhttp" }
+squareup-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "squareup-moshi" }
+squareup-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "squareup-moshi" }
+# Room
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "androidx-room" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "androidx-room" }
 androidx-room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "androidx-room" }
 androidx-room-paging = { group = "androidx.room", name = "room-paging", version.ref = "androidx-room" }
+# Testing-Unit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+jetbrains-kotlinx-coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+# Testing - Android
+androidx-compose-ui-testJunit = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-navigation-testing = { group = "androidx.navigation", name = "navigation-testing", version.ref = "androidx-navigation" }
 androidx-test-espresso = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidx-test-espresso" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
-google-android-material = { group = "com.google.android.material", name = "material", version.ref = "google-android-material" }
-jetbrains-kotlinx-coroutinesTest = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-squareup-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "squareup-moshi" }
-squareup-moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "squareup-moshi" }
-squareup-retrofit2-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "squareup-retrofit" }
-squareup-retrofit2-converterGson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "squareup-retrofit" }
-squareup-retrofit2-converterMoshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "squareup-retrofit" }
-squareup-retrofit2-mock = { group = "com.squareup.retrofit2", name = "retrofit-mock", version.ref = "squareup-retrofit" }
-squareup-okhttp-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "squareup-okhttp" }
+
+[bundles]
+android = [
+    "androidx-activity-compose", "androidx-appcompat", "androidx-core-ktx",
+    "androidx-lifecycle-runtime-ktx", "androidx-navigation", "google-android-material"
+]
+compose = [
+    "androidx-compose-material-icons", "androidx-compose-material3", "androidx-compose-ui",
+    "androidx-compose-ui-toolingPreview", "androidx-navigation-compose", "androidx-constraintLayout-compose",
+    "androidx-paging-compose"
+]
+compose-debug = [
+    "androidx-compose-ui-testManifest", "androidx-compose-ui-tooling", "squareup-retrofit2-converterMoshi",
+    "squareup-okhttp-logging", "squareup-moshi", "squareup-moshi-kotlin"
+]
+networking = [
+    "squareup-retrofit2-retrofit", "squareup-retrofit2-converterGson"
+]
+room = [
+    "androidx-room-ktx", "androidx-room-runtime", "androidx-room-paging"
+]
+testing-unit = [
+    "junit", "jetbrains-kotlinx-coroutinesTest"
+]
+testing-android = [
+    "androidx-compose-ui-testJunit", "androidx-navigation-testing", "androidx-test-espresso",
+    "androidx-test-ext-junit"
+]
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "gradle" }
