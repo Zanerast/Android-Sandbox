@@ -28,11 +28,8 @@ squareup-okhttp = "4.12.0"
 #####
 # Plugin Versions
 #####
-# Ensure compose compiler & kotlin are compatible in accordance with this chart:
-# https://developer.android.com/jetpack/androidx/releases/compose-kotlin
-kotlin = "1.8.21"
+kotlin = "2.0.21"
 gradle = "8.7.3"
-compose-compiler = "1.4.7"
 
 [libraries]
 # Android
@@ -107,3 +104,4 @@ testing-android = [
 android-application = { id = "com.android.application", version.ref = "gradle" }
 android-library = { id = "com.android.library", version.ref = "gradle" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

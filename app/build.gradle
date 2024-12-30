@@ -1,6 +1,7 @@
 plugins {
     alias libs.plugins.android.application
     alias libs.plugins.jetbrains.kotlin.android
+    alias libs.plugins.compose.compiler
     id 'kotlin-kapt'
 }
 
@@ -60,9 +61,6 @@ android {
     buildFeatures {
         compose true
         viewBinding true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
