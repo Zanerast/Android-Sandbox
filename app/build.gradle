@@ -1,6 +1,6 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
+    alias libs.plugins.android.application
+    alias libs.plugins.jetbrains.kotlin.android
     id 'kotlin-kapt'
 }
 
@@ -11,7 +11,7 @@ android {
      * compile your app. This means your app can use the API features included in
      * this API level and lower.
      */
-    compileSdk compile_sdk
+    compileSdk libs.versions.sdk.compile.get().toInteger()
 
     /**
      * The defaultConfig block encapsulates default settings and entries for all
@@ -23,14 +23,14 @@ android {
         // Also known as package name
         applicationId "com.astrick.sandbox"
         // Defines the minimum API level required to run the app.
-        minSdk min_sdk
+        minSdk libs.versions.sdk.min.get().toInteger()
         /**
          * The target SDK version is the version of the Android framework that your app is
          * specifically developed and tested against.
          * Indicates the highest Android version that your app is designed to be compatible with.
          * Allows your app to use new features and behaviors introduced in that version in runtime.
           */
-        targetSdk target_sdk
+        targetSdk libs.versions.sdk.target.get().toInteger()
         /**
          * Version code is an int so the system knows which versions are newer
          */
@@ -62,62 +62,62 @@ android {
         viewBinding true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = compose_compiler_version
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
 }
 
 dependencies {
 
     // Android
-    implementation "androidx.activity:activity-compose:$androidx_activity_compose"
-    implementation "androidx.appcompat:appcompat:$androidx_appcompact"
-    implementation "androidx.core:core-ktx:$androidx_core_ktx"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$androidx_lifecycle"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$androidx_lifecycle"
-    implementation "com.google.android.material:material:$google_android_material"
-    implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation"
+    implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.google.android.material)
+    implementation(libs.androidx.navigation)
 
     // Compose
-    implementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
-    implementation("androidx.compose.material:material-icons-extended")
-    implementation("androidx.compose.material3:material3")
-    implementation("androidx.compose.material3:material3-window-size-class")
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.navigation:navigation-compose:$androidx_navigation_compose")
-    implementation("androidx.constraintlayout:constraintlayout-compose:$androidx_compose_constraint_layout")
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.material.icons)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.toolingPreview)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.constraintLayout.compose)
 
     // Compose: Paging
-    implementation "androidx.paging:paging-runtime-ktx:3.3.5"
-    implementation "androidx.paging:paging-compose:3.3.5"
+    implementation(libs.androidx.paging)
+    implementation(libs.androidx.paging.compose)
 
     // Debug
-    debugImplementation "androidx.compose.ui:ui-tooling:$androidx_compose_ui"
-    debugImplementation "androidx.compose.ui:ui-test-manifest:$androidx_compose_ui"
+    debugImplementation(libs.androidx.compose.ui.tooling)
+    debugImplementation(libs.androidx.compose.ui.testManifest)
 
     // Room
-    implementation "androidx.room:room-runtime:$androidx_room"
-    implementation "androidx.room:room-ktx:$androidx_room"
-    implementation "androidx.room:room-paging:$androidx_room"
-    kapt "androidx.room:room-compiler:$androidx_room"
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.paging)
+    kapt(libs.androidx.room.compiler)
 
     // Network
-    implementation "com.squareup.retrofit2:retrofit:$squareup_retrohit"
-    implementation "com.squareup.retrofit2:converter-gson:$squareup_retrohit"
-    implementation "com.squareup.retrofit2:retrofit-mock:$squareup_retrohit"
-    implementation "com.squareup.okhttp3:logging-interceptor:$squareup_okhttp"
-    implementation("com.squareup.moshi:moshi:1.15.2")
-    implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
-    implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+    implementation(libs.squareup.retrofit2.retrofit)
+    implementation(libs.squareup.retrofit2.converterGson)
+    implementation(libs.squareup.retrofit2.converterMoshi)
+    implementation(libs.squareup.retrofit2.mock)
+    implementation(libs.squareup.okhttp.logging)
+    implementation(libs.squareup.moshi)
+    implementation(libs.squareup.moshi.kotlin)
 
     // Testing
-    testImplementation "junit:junit:$junit"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlin_coroutines_version"
+    testImplementation(libs.junit)
+    testImplementation(libs.jetbrains.kotlinx.coroutinesTest)
 
-    androidTestImplementation(platform("androidx.compose:compose-bom:$androidx_compose_bom"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    androidTestImplementation "androidx.navigation:navigation-testing:$androidx_navigation_testing"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$androidx_test_espresso"
-    androidTestImplementation "androidx.test.ext:junit:$androidx_test_ext"
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+
+    androidTestImplementation(libs.androidx.compose.ui.testJunit)
+    androidTestImplementation(libs.androidx.navigation.testing)
+    androidTestImplementation(libs.androidx.test.espresso)
+    androidTestImplementation(libs.androidx.test.ext.junit)
 
 }
