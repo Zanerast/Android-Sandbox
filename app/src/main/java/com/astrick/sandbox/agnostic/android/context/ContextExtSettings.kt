@@ -2,8 +2,8 @@ package com.astrick.sandbox.agnostic.android.context
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
 import android.provider.Settings
+import androidx.core.net.toUri
 
 @Suppress("unused")
 object ContextExtSettings {
@@ -16,7 +16,7 @@ object ContextExtSettings {
 	 */
 	fun Context.openSettingsToAppPage() {
 		val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-		intent.data = Uri.parse("package:$packageName")
+		intent.data = "package:$packageName".toUri()
 		startActivity(intent)
 	}
 

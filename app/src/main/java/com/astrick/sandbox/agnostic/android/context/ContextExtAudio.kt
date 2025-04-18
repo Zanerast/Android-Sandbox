@@ -6,26 +6,10 @@ import android.media.AudioManager
 import android.media.Ringtone
 import android.media.RingtoneManager
 import android.net.Uri
+import androidx.core.net.toUri
 
 @Suppress("unused")
 object ContextExtAudio {
-
-	/**
-	 * Retrieves the title of a ringtone from a given URI.
-	 *
-	 * @receiver Context used to access the ringtone resources.
-	 * @param uri The URI of the ringtone to retrieve.
-	 * @return The title of the ringtone as a [String].
-	 */
-	fun Context.getRingtoneTitleFromUri(uri: Uri): String? {
-		val title = RingtoneManager.getRingtone(this, uri)
-			.getTitle(this)
-
-		if (title == "null")
-			return null
-
-		return title
-	}
 
 	/**
 	 * Plays the specified audio URI as an alarm sound with adjusted volume.
@@ -51,7 +35,7 @@ object ContextExtAudio {
 		val builder = AudioAttributes.Builder()
 		builder.setUsage(AudioAttributes.USAGE_ALARM)
 
-		val ringtone = RingtoneManager.getRingtone(this, Uri.parse(uri.toString()))
+		val ringtone = RingtoneManager.getRingtone(this, uri.toString().toUri())
 		ringtone.audioAttributes = builder.build()
 		return ringtone
 	}

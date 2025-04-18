@@ -2,7 +2,7 @@ package com.astrick.sandbox.agnostic.android.context
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 
 @Suppress("unused")
 object ContextExtSharing {
@@ -27,7 +27,7 @@ object ContextExtSharing {
 
 		// Prepare the Intent to open the Play Store
 		val openPlayStoreIntent = Intent(Intent.ACTION_VIEW).apply {
-			data = Uri.parse("market://details?id=$packageName")
+			data = "market://details?id=$packageName".toUri()
 		}
 
 		// Create a chooser Intent that allows users to pick an app for sharing
