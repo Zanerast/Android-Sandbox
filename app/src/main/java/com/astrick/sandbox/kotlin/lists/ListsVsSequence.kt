@@ -6,19 +6,21 @@ import kotlin.system.measureTimeMillis
  * Demonstrates the performance for Kotlin `List`.
  *
  * Example recorded times (in milliseconds):
- * - For list size 1,000,000: 173, 205, 231, 136
- * - For list size 10: 48, 83, 85, 47, 85
+ * - For list size 1,000,000: 157_375
+ * - For list size 10: 33, 31, 32
  */
 fun listExample() {
-    val list = List(1_000_000) { it }
+    val list = List(10) { it }
 
     val listTime = measureTimeMillis {
-        val result = list
-            .map { it * 2 }
-            .filter { it % 3 == 0 }
-            .sortedDescending()
-            .sum()
-        println("List result: $result")
+        repeat(10_000) {
+            val result = list
+                .map { it * 2 }
+                .filter { it % 3 == 0 }
+                .sortedDescending()
+                .sum()
+            check(result != 0)
+        }
     }
 
     println("List time: $listTime ms")
@@ -27,23 +29,22 @@ fun listExample() {
 /**
  * Demonstrates the performance for Kotlin `Sequence`.
  *
- * Note:
- * Sequence still appears faster than list for small sizes.
- *
  * Example recorded times (in milliseconds):
- * - For list size 1,000,000: 203, 242, 118, 291
- * - For list size 10: 46, 80, 55, 54
+ * - For Sequence size 1,000,000: 81_805
+ * - For Sequence size 10: 17, 17, 19
  */
 fun sequenceExampleThatIsSlowerThanList() {
-    val list = List(1_000_000) { it }
+    // TODO an actual example doesn't exist
+    val sequence = List(10) { it }.asSequence()
     val seqTime = measureTimeMillis {
-        val result = list
-            .asSequence()
-            .map { it * 2 }
-            .filter { it % 3 == 0 }
-            .sortedDescending() // Fully materializes sequence
-            .sum()
-        println("Sequence result: $result")
+        repeat(10_000) {
+            val result = sequence
+                .map { it * 2 }
+                .filter { it % 3 == 0 }
+                .sortedDescending() // Fully materializes sequence
+                .sum()
+            check(result != 0)
+        }
     }
     println("Sequence time: $seqTime ms")
 }
