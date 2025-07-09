@@ -51,17 +51,15 @@ fun ClickToMoveTheCupcakeExample(
         modifier = modifier.fillMaxSize()
     ) {
         val offset = remember { Animatable(Offset(0f, 0f), Offset.VectorConverter) }
-        var size: IntSize
         val scope = rememberCoroutineScope()
         Box(
             modifier = Modifier
                 .fillMaxSize()
                 .weight(1f)
                 .onSizeChanged {
-                    size = it
                     scope.launch {
                         // Center cupcake
-                        offset.animateTo(Offset(size.width / 2f, size.height / 2f), snap())
+                        offset.animateTo(Offset(it.width / 2f, it.height / 2f), snap())
                     }
                 }
                 .background(Color.Red)
